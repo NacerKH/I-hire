@@ -9,6 +9,8 @@ package Modules.CondidatEmployee.src.Contracts;
  *
  * @author LENOVO
  */
-public class EmployeeCondidatInterface {
+@FunctionalInterface
+public interface EmployeeCondidatInterface {
+ abstract void InsertEmpCondidat(int offer_id,int  user_id, String Cv_url, int status);
     
 }

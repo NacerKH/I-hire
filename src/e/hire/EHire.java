@@ -5,6 +5,7 @@
  */
 package e.hire;
 
+import Modules.CondidatEmployee.src.Controllers.EmployeeCondidatController;
 /**
  *
  * @author LENOVO
@@ -15,7 +16,10 @@ public class EHire {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+         EmployeeCondidatController C =new  EmployeeCondidatController(); 
+                 C.store(0, 0, "dd", 0);
+      
     }
     
 }
