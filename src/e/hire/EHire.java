@@ -17,8 +17,8 @@ public class EHire {
      */
     public static void main(String[] args) {
         
-         EmployeeCondidatController C =new  EmployeeCondidatController(); 
-                 C.store(0, 0, "dd", 0);
+       
+         EmployeeCondidatController.store(0, 0, "dd", 0);
       
     }
     
