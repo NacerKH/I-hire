@@ -28,5 +28,11 @@ public class EmployeeCondidatController {
         emc.AddEmpCondidat(Ec.getOffer_id(), Ec.getUser_id(), Ec.getCv_url(), Ec.getStatus());
 
     }
+        public static void update(int offer_id, int user_id, String Cv_url, int status, int id) {
+        EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
+        EmployeesCondidat Ec = new EmployeesCondidat(offer_id, user_id, Cv_url, status);
+        emc.UpdateEmpCondidat(Ec, id);
+
+    }
 
 }

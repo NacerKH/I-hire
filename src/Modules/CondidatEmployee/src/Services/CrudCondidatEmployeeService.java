@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
 
     static Connection cnx = env.getConnection();
+
     //Add 
 
     @Override
@@ -75,11 +76,7 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
                 Ec.setCv_url(rs.getString(4));               
                 Ec.setPostedate(rs.getDate(5));
                 Ec.setStatus(rs.getInt(5));
-
-                
-     
-
-                Emc.add(Ec);
+                  Emc.add(Ec);
 
             }
 
@@ -88,5 +85,34 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
         }
 
         return Emc;
+    }
+    
+       @Override
+       public void UpdateEmpCondidat(EmployeesCondidat emc ,int id) {
+          Date Currentdate = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(Currentdate.getTime());
+        try {
+          String req2 = "UPDATE condidatEmployees  SET  offer_id=?,user_id=?, cv_url=?,postedate=?,status=?    WHERE id = ?";
+
+          
+
+            PreparedStatement ps = cnx.prepareStatement(req2);
+
+            ps.setInt(1,emc.getOffer_id());
+            ps.setInt(2, emc.getUser_id());            
+            ps.setString(3, emc.getCv_url());
+            ps.setDate(4, sqlDate);
+            ps.setInt(5, emc.getStatus());
+            ps.setInt(6, id);
+
+            ps.executeUpdate();
+
+            System.out.println("Condidat Employee "
+                    + emc.getOffer_id() + " added successfully with " +emc.getUser_id());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

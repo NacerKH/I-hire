@@ -18,9 +18,11 @@ public class EHire {
      */
     public static void main(String[] args) {
         System.out.println("edqsds");
-
-        EmployeeCondidatController.store(0, 0, "kali", 0);
         System.out.println(EmployeeCondidatController.index());
+        EmployeeCondidatController.store(0, 0, "kali", 0);     
+        EmployeeCondidatController.update(1, 1, "kali", 0,1); //By Id  in this cas 1  last params
+
+     
 
     }
 
