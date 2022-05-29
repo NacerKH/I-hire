@@ -20,6 +20,7 @@ public class EHire {
         System.out.println("edqsds");
 
         EmployeeCondidatController.store(0, 0, "kali", 0);
+        System.out.println(EmployeeCondidatController.index());
 
     }
 

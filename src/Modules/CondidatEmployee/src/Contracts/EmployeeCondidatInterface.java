@@ -5,12 +5,16 @@
  */
 package Modules.CondidatEmployee.src.Contracts;
 
+import Modules.CondidatEmployee.src.Models.EmployeesCondidat;
+import java.util.List;
+
 /**
  *
  * @author LENOVO
  */
 
 public interface EmployeeCondidatInterface {
-   public  void InsertEmpCondidat(int offer_id,int  user_id, String Cv_url, int status);
+   public  void AddEmpCondidat(int offer_id,int  user_id, String Cv_url, int status);
+ public List<EmployeesCondidat> fetchEmpCs();
     
 }
