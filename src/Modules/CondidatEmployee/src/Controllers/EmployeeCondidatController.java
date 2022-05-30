@@ -18,9 +18,9 @@ public class EmployeeCondidatController {
 
     public static List<EmployeesCondidat> index() {
         EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
-        
-         return emc.fetchEmpCs();
-                                                                              }
+
+        return emc.fetchEmpCs();
+    }
 
     public static void store(int offer_id, int user_id, String Cv_url, int status) {
         EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
@@ -28,15 +28,22 @@ public class EmployeeCondidatController {
         emc.AddEmpCondidat(Ec.getOffer_id(), Ec.getUser_id(), Ec.getCv_url(), Ec.getStatus());
 
     }
-        public static void update(int offer_id, int user_id, String Cv_url, int status, int id) {
+
+    public static void update(int offer_id, int user_id, String Cv_url, int status, int id) {
         EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
         EmployeesCondidat Ec = new EmployeesCondidat(offer_id, user_id, Cv_url, status);
         emc.UpdateEmpCondidat(Ec, id);
 
     }
-        public static void  delete(int id ){
-            EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
-            emc.DeleteEmpCondidat(id);
-        }
+
+    public static EmployeesCondidat show(int id) {
+        EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
+        return emc.GetOneEmpCondidat(id);
+    }
+
+    public static void delete(int id) {
+        EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
+        emc.DeleteEmpCondidat(id);
+    }
 
 }

@@ -136,4 +136,34 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
             Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
+            //Select by id
+        @Override
+       public EmployeesCondidat GetOneEmpCondidat(int id){
+               EmployeesCondidat emc = new  EmployeesCondidat();
+        
+        try {
+            String req = "SELECT * from condidatEmployees WHERE id = ?";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+               emc.setId(rs.getInt(1));
+                emc.setOffer_id(rs.getInt(2));                
+                emc.setUser_id(rs.getInt(3));   
+                emc.setCv_url(rs.getString(4));
+              
+                emc.setPostedate(rs.getDate(5));            
+                emc.setStatus(rs.getInt(6));
+
+
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCondidatEmployeeService .class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return emc;
+        }
 }

@@ -18,5 +18,6 @@ public interface EmployeeCondidatInterface {
  public List<EmployeesCondidat> fetchEmpCs();
   public void UpdateEmpCondidat(EmployeesCondidat emc ,int id);
   public void DeleteEmpCondidat(int id);
+   public  EmployeesCondidat  GetOneEmpCondidat(int id );
     
 }
