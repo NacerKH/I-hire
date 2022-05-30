@@ -115,4 +115,25 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
         }
 
     }
+       @Override
+        public void DeleteEmpCondidat(int id){
+              try {
+          String req2 = "DELETE FROM condidatEmployees    WHERE id = ?";
+
+          
+
+            PreparedStatement ps = cnx.prepareStatement(req2);
+
+       
+            ps.setInt(1, id);
+
+            ps.executeUpdate();
+
+            System.out.println("Condidat Employee  num="
+                    + id + " destory successfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 }

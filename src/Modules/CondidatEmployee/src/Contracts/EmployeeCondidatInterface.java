@@ -17,5 +17,6 @@ public interface EmployeeCondidatInterface {
    public  void AddEmpCondidat(int offer_id,int  user_id, String Cv_url, int status);
  public List<EmployeesCondidat> fetchEmpCs();
   public void UpdateEmpCondidat(EmployeesCondidat emc ,int id);
+  public void DeleteEmpCondidat(int id);
     
 }

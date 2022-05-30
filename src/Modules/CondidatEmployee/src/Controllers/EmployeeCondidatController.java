@@ -34,5 +34,9 @@ public class EmployeeCondidatController {
         emc.UpdateEmpCondidat(Ec, id);
 
     }
+        public static void  delete(int id ){
+            EmployeeCondidatInterface emc = new CrudCondidatEmployeeService();
+            emc.DeleteEmpCondidat(id);
+        }
 
 }
