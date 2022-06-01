@@ -6,7 +6,7 @@
 package Entities;
 
 import java.util.Date;
-
+import Enums.CondidatEmployeeType;
 /**
  *
  * @author LENOVO
@@ -16,19 +16,19 @@ public class CondidatEmployee extends BaseEntity {
     public int offer_id;
     public int user_id;
     public String cv_url;
-    public int status;
+    public CondidatEmployeeType status;
 
     public CondidatEmployee() {
     }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url, int status) {
+    public CondidatEmployee(int offer_id, int user_id, String cv_url, CondidatEmployeeType status) {
         this.offer_id = offer_id;
         this.user_id = user_id;
         this.cv_url = cv_url;
         this.status = status;
     }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url, int status, int Id, Date CreatedDate, Date UpdatedDate) {
+    public CondidatEmployee(int offer_id, int user_id, String cv_url, CondidatEmployeeType status, int Id, Date CreatedDate, Date UpdatedDate) {
         super(Id, CreatedDate, UpdatedDate);
         this.offer_id = offer_id;
         this.user_id = user_id;
@@ -60,11 +60,11 @@ public class CondidatEmployee extends BaseEntity {
         this.cv_url = cv_url;
     }
 
-    public int getStatus() {
+    public CondidatEmployeeType getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(CondidatEmployeeType status) {
         this.status = status;
     }
 @Override
@@ -96,8 +96,13 @@ public class CondidatEmployee extends BaseEntity {
     public void setUpdatedDate(Date UpdatedDate) {
         this.UpdatedDate = UpdatedDate;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "CondidatEmployee{" + "offer_id=" + offer_id + ", user_id=" + user_id + ", cv_url=" + cv_url + ", status=" + status + '}';
+    }
+
+  
     
 
 }
