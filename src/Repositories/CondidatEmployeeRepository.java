@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Enums.CondidatEmployeeType;
+import Enums.Status;
 import java.sql.Date;
 
 /**
@@ -46,6 +46,7 @@ public class CondidatEmployeeRepository {
             while (result.next()) {
 
                 try {
+
                     resultList.add(InitCondidatEmployee(result));
                 } catch (Exception ex) {
                     System.err.println("[Exception] " + ex.getMessage());
@@ -62,7 +63,7 @@ public class CondidatEmployeeRepository {
     // <editor-fold defaultstate="collapsed" desc="GetById">
     public CondidatEmployee GetById(int id) {
         try {
-            String req = "SELECT * FROM User WHERE Id = " + id + ";";
+            String req = "SELECT * FROM condidatEmployees WHERE Id = " + id + ";";
             PreparedStatement ps = Connection.prepareStatement(req);
             ResultSet result = ps.executeQuery();
             while (result.next()) {
@@ -85,7 +86,7 @@ public class CondidatEmployeeRepository {
     public boolean Post(CondidatEmployee model) {
         try {
             String req = "INSERT INTO `condidatEmployees`(`offer_id`,`user_id`, `cv_url`,`CreatedDate`,`UpdatedDate`,`status`)"
-                    + " VALUES (?,?,?,?,?)";
+                    + " VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req);
 
             ps.setInt(1, model.getOffer_id());
@@ -112,17 +113,17 @@ public class CondidatEmployeeRepository {
     public boolean Put(CondidatEmployee model) {
 
         try {
-            String req = "UPDATE condidatEmployees  SET  offer_id=?,user_id=?, cv_url=?,postedate=?,CreatedDate=?,UpdatedDate=?,status=?    WHERE id = ?";
+            String req = "UPDATE condidatEmployees  SET  offer_id=?,user_id=?, cv_url=?,CreatedDate=?,UpdatedDate=?,status=?    WHERE id = ?";
 
             PreparedStatement ps = Connection.prepareStatement(req);
-
+           
             ps.setInt(1, model.getOffer_id());
             ps.setInt(2, model.getUser_id());
             ps.setString(3, model.getCv_url());
             ps.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
             ps.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
-            ps.setString(5, model.getStatus().name());
-            ps.setInt(6, model.getId());
+            ps.setString(6, model.getStatus().name());
+            ps.setInt(7, model.getId());
 
             ps.executeUpdate();
 
@@ -142,7 +143,7 @@ public class CondidatEmployeeRepository {
     public boolean Delete(int id) {
 
         try {
-            String req = "DELETE condidatEmployees User WHERE Id = ? ; ";
+            String req = "DELETE FROM condidatEmployees  WHERE Id = ? ; ";
             PreparedStatement ps = Connection.prepareStatement(req);
 
             ps.setInt(1, id);
@@ -161,12 +162,14 @@ public class CondidatEmployeeRepository {
     // <editor-fold defaultstate="collapsed" desc="InitUser">
     private CondidatEmployee InitCondidatEmployee(ResultSet result) {
         try {
-            CondidatEmployeeType type = CondidatEmployeeType.valueOf(result.getString("CondidatEmployeeType"));
+          
+            Status type = Status.valueOf(result.getString("status"));
+
             return new CondidatEmployee(
                     result.getInt("offer_id"),
                     result.getInt("user_id"),
                     result.getString("cv_url"),
-                        type,
+                    type,
                     result.getInt("Id"),
                     result.getDate("CreatedDate"),
                     result.getDate("UpdatedDate")

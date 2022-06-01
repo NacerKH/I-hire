@@ -9,6 +9,4 @@ package Enums;
  *
  * @author Kali 
  */
-public enum CondidatEmployeeType {
-    Panding,Open,Preselection,Accepted,Reject
-}
+public enum Status {PANDING,OPEN,PRESELECTION,ACCEPTED,REJECT}

@@ -6,7 +6,7 @@
 package Entities;
 
 import java.util.Date;
-import Enums.CondidatEmployeeType;
+import Enums.Status;
 /**
  *
  * @author LENOVO
@@ -16,19 +16,19 @@ public class CondidatEmployee extends BaseEntity {
     public int offer_id;
     public int user_id;
     public String cv_url;
-    public CondidatEmployeeType status;
+    public  Status  status;
 
     public CondidatEmployee() {
     }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url, CondidatEmployeeType status) {
+    public CondidatEmployee(int offer_id, int user_id, String cv_url, Status status) {
         this.offer_id = offer_id;
         this.user_id = user_id;
         this.cv_url = cv_url;
         this.status = status;
     }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url, CondidatEmployeeType status, int Id, Date CreatedDate, Date UpdatedDate) {
+    public CondidatEmployee(int offer_id, int user_id, String cv_url,  Status status, int Id, Date CreatedDate, Date UpdatedDate) {
         super(Id, CreatedDate, UpdatedDate);
         this.offer_id = offer_id;
         this.user_id = user_id;
@@ -60,11 +60,11 @@ public class CondidatEmployee extends BaseEntity {
         this.cv_url = cv_url;
     }
 
-    public CondidatEmployeeType getStatus() {
+    public  Status getStatus() {
         return status;
     }
 
-    public void setStatus(CondidatEmployeeType status) {
+    public void setStatus( Status  status) {
         this.status = status;
     }
 @Override

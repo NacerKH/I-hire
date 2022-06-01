@@ -6,7 +6,7 @@
 package ehiresolution;
 import Infrastructure.AppDbContext;
 import Entities.CondidatEmployee;
-import Enums.CondidatEmployeeType;
+import Enums.Status;
 import Repositories.CondidatEmployeeRepository;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,9 +23,9 @@ public class Ehiresolution {
      CondidatEmployeeRepository condidatEmployeeRepo = CondidatEmployeeRepository.GetInstance(); 
         
         /*
-         *  To Test Post User
-         condidatEmployeeRepo.Post(new CondidatEmployee ("dhiaeddsn1", "123456789", "dhia1@email.com",UserType.RH , "imguri", new Date(1999,7,29), "CTO")); 
-         */
+         *  To Test Post User */
+         condidatEmployeeRepo.Post(new CondidatEmployee(1, 2, "storage/kaali.pdf",Status.ACCEPTED)); 
+        
         
         /*
          *  To Test Post Get All CondidatEmployeeRepo 
@@ -33,31 +33,32 @@ public class Ehiresolution {
         */
         
         /*
-         *  To Test Get CondidatEmployeeRepo  By Id
-        //System.out.println( condidatEmployeeRepo.GetById(1).toString()); 
-         */
+         *  To Test Get CondidatEmployeeRepo  By Id   */
+        
+        System.out.println("this for getByID"+ condidatEmployeeRepo.GetById(18).toString()); 
+      
 
        
         
         /*
-         * To Test Put CondidatEmployee
-       CondidatEmployee condidatEmployee=  condidatEmployeeRepo.GetById(1); 
+         * To Test Put CondidatEmployee   */
+       CondidatEmployee condidatEmployee=  condidatEmployeeRepo.GetById(18); 
         System.out.println("CondidatEmployee before update"); 
         System.out.println(condidatEmployee.toString()); 
         System.out.println("condidatEmployee after update"); 
-        condidatEmployee.setPassword("1234");
-        condidatEmployeeRepo.Put(user); 
-        System.out.println( condidatEmployeeRepo.GetById(1).toString()); 
-         */
+        condidatEmployee.setStatus(Status.PANDING);
+        condidatEmployeeRepo.Put(condidatEmployee); 
+        System.out.println( "YOU CAN IS UPDATED NOW "+condidatEmployeeRepo.GetById(18).toString()); 
+      
         
         /*
-         * To Test Delete User
+         * To Test Delete User */
         System.out.println("List Before Deleting one item size is " +  condidatEmployeeRepo.GetAll().size());
-        userRepo.Delete(1); 
+        condidatEmployeeRepo.Delete(10); 
         System.out.println("List after Deleting one item size is " +  condidatEmployeeRepo.GetAll().size());
-        */
-        
+       
+
             
-         condidatEmployeeRepo.GetAll().forEach(u -> System.out.println(u.toString()));
+        condidatEmployeeRepo.GetAll().forEach(u -> System.out.println(u.toString()));
     }
 }
