@@ -27,7 +27,6 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
     static Connection cnx = env.getConnection();
 
     //Add 
-
     @Override
     public void AddEmpCondidat(int offer_id, int user_id, String Cv_url, int status) {
         Date Currentdate = new Date();
@@ -54,7 +53,7 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
 
     //Select  
     @Override
-    
+
     public List<EmployeesCondidat> fetchEmpCs() {
 
         List<EmployeesCondidat> Emc = new ArrayList<>();
@@ -69,14 +68,13 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
             while (rs.next()) {
                 EmployeesCondidat Ec = new EmployeesCondidat();
 
-
-               Ec.setId(rs.getInt(1));
-                Ec.setOffer_id( rs.getInt(2));
+                Ec.setId(rs.getInt(1));
+                Ec.setOffer_id(rs.getInt(2));
                 Ec.setUser_id(rs.getInt(3));
-                Ec.setCv_url(rs.getString(4));               
+                Ec.setCv_url(rs.getString(4));
                 Ec.setPostedate(rs.getDate(5));
                 Ec.setStatus(rs.getInt(5));
-                  Emc.add(Ec);
+                Emc.add(Ec);
 
             }
 
@@ -86,20 +84,18 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
 
         return Emc;
     }
-    
-       @Override
-       public void UpdateEmpCondidat(EmployeesCondidat emc ,int id) {
-          Date Currentdate = new Date();
+
+    @Override
+    public void UpdateEmpCondidat(EmployeesCondidat emc, int id) {
+        Date Currentdate = new Date();
         java.sql.Date sqlDate = new java.sql.Date(Currentdate.getTime());
         try {
-          String req2 = "UPDATE condidatEmployees  SET  offer_id=?,user_id=?, cv_url=?,postedate=?,status=?    WHERE id = ?";
-
-          
+            String req2 = "UPDATE condidatEmployees  SET  offer_id=?,user_id=?, cv_url=?,postedate=?,status=?    WHERE id = ?";
 
             PreparedStatement ps = cnx.prepareStatement(req2);
 
-            ps.setInt(1,emc.getOffer_id());
-            ps.setInt(2, emc.getUser_id());            
+            ps.setInt(1, emc.getOffer_id());
+            ps.setInt(2, emc.getUser_id());
             ps.setString(3, emc.getCv_url());
             ps.setDate(4, sqlDate);
             ps.setInt(5, emc.getStatus());
@@ -108,23 +104,21 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
             ps.executeUpdate();
 
             System.out.println("Condidat Employee "
-                    + emc.getOffer_id() + " added successfully with " +emc.getUser_id());
+                    + emc.getOffer_id() + " added successfully with " + emc.getUser_id());
 
         } catch (SQLException ex) {
             Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-       @Override
-        public void DeleteEmpCondidat(int id){
-              try {
-          String req2 = "DELETE FROM condidatEmployees    WHERE id = ?";
 
-          
+    @Override
+    public void DeleteEmpCondidat(int id) {
+        try {
+            String req2 = "DELETE FROM condidatEmployees    WHERE id = ?";
 
             PreparedStatement ps = cnx.prepareStatement(req2);
 
-       
             ps.setInt(1, id);
 
             ps.executeUpdate();
@@ -135,35 +129,34 @@ public class CrudCondidatEmployeeService implements EmployeeCondidatInterface {
         } catch (SQLException ex) {
             Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
-            //Select by id
-        @Override
-       public EmployeesCondidat GetOneEmpCondidat(int id){
-               EmployeesCondidat emc = new  EmployeesCondidat();
-        
+    }
+    //Select by id
+
+    @Override
+    public EmployeesCondidat GetOneEmpCondidat(int id) {
+        EmployeesCondidat emc = new EmployeesCondidat();
+
         try {
             String req = "SELECT * from condidatEmployees WHERE id = ?";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()) {                
-               emc.setId(rs.getInt(1));
-                emc.setOffer_id(rs.getInt(2));                
-                emc.setUser_id(rs.getInt(3));   
+
+            while (rs.next()) {
+                emc.setId(rs.getInt(1));
+                emc.setOffer_id(rs.getInt(2));
+                emc.setUser_id(rs.getInt(3));
                 emc.setCv_url(rs.getString(4));
-              
-                emc.setPostedate(rs.getDate(5));            
+
+                emc.setPostedate(rs.getDate(5));
                 emc.setStatus(rs.getInt(6));
 
-
             }
-            
-            
+
         } catch (SQLException ex) {
-            Logger.getLogger(CrudCondidatEmployeeService .class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrudCondidatEmployeeService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return emc;
-        }
+    }
 }
