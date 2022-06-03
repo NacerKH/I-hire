@@ -5,8 +5,4 @@
  */
 package Enums;
 
-/**
- *
- * @author Kali 
- */
-public enum Status {PANDING,OPEN,PRESELECTION,ACCEPTED,REJECT}
+public enum UserType { User, Employee, RH, Admin }
