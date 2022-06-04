@@ -36,15 +36,15 @@ CandidatRepository ct = CandidatRepository.GetInstance();
 
 
 // /*  POST
-     /*   Candidat c = new Candidat("test","test","test","test",new Date(),new Date());
-         Candidat c1 = new Candidat("ss","jj","test","t",new Date(),new Date());
+       Candidat c = new Candidat("yyy","test","test","test",new Date(),new Date());
+         Candidat c1 = new Candidat("ss","ddd","kkk","t",new Date(),new Date());
           ArrayList<Candidat> lc = new ArrayList<Candidat>();
           lc.add(c);
            lc.add(c1);
          IntereviewDate intdate= new IntereviewDate("test",new Date(),new Date(),lc);
 
         intdate.setCandidats(lc);
-         intrep.Post(intdate); */
+         intrep.Post(intdate); 
        
          //intrep.GetById(26);
          
