@@ -3,22 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Main;
+package GUI;
 
 /**
  *
  * @author Dhiaeddsn
  */
-public class EHireSolution {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        /*
-         * To DO: test here your crud
-         */
-    }
+public class empty {
     
 }
