@@ -6,7 +6,7 @@
 package Services;
 
 import Utils.AppDbContext;
-import Entities.User;
+import Models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
