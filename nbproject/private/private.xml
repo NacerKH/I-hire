@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/models/Category.java</file>
-            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/services/CategoryService.java</file>
-            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/services/JobOfferService.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/Services/CategoryService.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/Services/JobOfferService.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/Models/JobOffer.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/GUI/FXMLController.java</file>
             <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/joboffers/JobOffers.java</file>
-            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/models/JobOffer.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/joboffers/NewFXMain.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/Utils/MyConnection.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/Models/Category.java</file>
+            <file>file:/C:/Users/wawa/Documents/NetBeansProjects/JobOffers/src/GUI/FXML.fxml</file>
         </group>
     </open-files>
 </project-private>

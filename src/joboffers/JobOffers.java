@@ -6,10 +6,10 @@
 package joboffers;
 
 import java.sql.Date;
-import models.Category;
-import models.JobOffer;
-import services.CategoryService;
-import services.JobOfferService;
+import Models.Category;
+import Models.JobOffer;
+import Services.CategoryService;
+import Services.JobOfferService;
 
 /**
  *
