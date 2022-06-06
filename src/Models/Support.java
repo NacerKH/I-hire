@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HireSolution.entities;
+package Models;
 
 /**
  *
@@ -12,7 +12,7 @@ package HireSolution.entities;
 public class Support {
     //var
     private int id_support;
-    private Interview id_interview;
+    private Interview interview;
     private String description_offre ;
     private String cv_candidate;
     
@@ -21,15 +21,15 @@ public class Support {
     public Support() {
     }
 
-    public Support(int id_support, Interview id_interview, String description_offre, String cv_candidate) {
+    public Support(int id_support, Interview interview, String description_offre, String cv_candidate) {
         this.id_support = id_support;
-        this.id_interview = id_interview;
+        this.interview = interview;
         this.description_offre = description_offre;
         this.cv_candidate = cv_candidate;
     }
 
-    public Support(Interview id_interview, String description_offre, String cv_candidate) {
-        this.id_interview = id_interview;
+    public Support(Interview interview, String description_offre, String cv_candidate) {
+        this.interview = interview;
         this.description_offre = description_offre;
         this.cv_candidate = cv_candidate;
     }
@@ -44,12 +44,12 @@ public class Support {
         this.id_support = id_support;
     }
 
-    public Interview getId_interview() {
-        return id_interview;
+    public Interview getInterview() {
+        return interview;
     }
 
-    public void setId_interview(Interview id_interview) {
-        this.id_interview = id_interview;
+    public void setInterview(Interview interview) {
+        this.interview = interview;
     }
 
     public String getDescription_offre() {
@@ -67,12 +67,16 @@ public class Support {
     public void setCv_candidate(String cv_candidate) {
         this.cv_candidate = cv_candidate;
     }
-    //to_string
+  
 
     @Override
     public String toString() {
-        return "Support{" + "id_support=" + id_support + ", id_interview=" + id_interview + ", description_offre=" + description_offre + ", cv_candidate=" + cv_candidate + '}';
+        return "Support{" + "id_support=" + id_support + ", id_interview=" + interview + ", description_offre=" + description_offre + ", cv_candidate=" + cv_candidate + '}';
     }
+
+  
+
+  
     
     
     
