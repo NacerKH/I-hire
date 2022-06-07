@@ -19,7 +19,12 @@ is divided into following sections:
   - cleanup
 
         -->
+<<<<<<< HEAD
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="EHireSolution-impl">
+=======
+<project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="ehireSolution-impl">
+    <import file="jfx-impl.xml"/>
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -450,7 +455,11 @@ is divided into following sections:
                     </fileset>
                 </union>
                 <taskdef classname="org.testng.TestNGAntTask" classpath="${run.test.classpath}" name="testng"/>
+<<<<<<< HEAD
                 <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="EHireSolution" testname="TestNG tests" workingDir="${work.dir}">
+=======
+                <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="ehireSolution" testname="TestNG tests" workingDir="${work.dir}">
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
                     <xmlfileset dir="${build.test.classes.dir}" includes="@{testincludes}"/>
                     <propertyset>
                         <propertyref prefix="test-sys-prop."/>
@@ -601,7 +610,11 @@ is divided into following sections:
                 <condition else="-testclass @{testClass}" property="test.class.or.method" value="-methods @{testClass}.@{testMethod}">
                     <isset property="test.method"/>
                 </condition>
+<<<<<<< HEAD
                 <condition else="-suitename EHireSolution -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+=======
+                <condition else="-suitename ehireSolution -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
                     <matches pattern=".*\.xml" string="@{testClass}"/>
                 </condition>
                 <delete dir="${build.test.results.dir}" quiet="true"/>
@@ -893,7 +906,11 @@ is divided into following sections:
         <delete file="${built-jar.properties}" quiet="true"/>
     </target>
     <target if="already.built.jar.${basedir}" name="-warn-already-built-jar">
+<<<<<<< HEAD
         <echo level="warn" message="Cycle detected: EHireSolution was already built"/>
+=======
+        <echo level="warn" message="Cycle detected: ehireSolution was already built"/>
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
     </target>
     <target depends="init,-deps-jar-init" name="deps-jar" unless="no.deps">
         <mkdir dir="${build.dir}"/>
@@ -1025,7 +1042,11 @@ is divided into following sections:
     </target>
     <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-do-jar-jar,-do-jar-delete-manifest" name="-do-jar-without-libraries"/>
     <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-do-jar-copylibs,-do-jar-delete-manifest" name="-do-jar-with-libraries"/>
+<<<<<<< HEAD
     <target name="-post-jar">
+=======
+    <target depends="-jfx-copylibs,-rebase-libs,jfx-deployment" name="-post-jar">
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
@@ -1036,7 +1057,11 @@ is divided into following sections:
                 EXECUTION SECTION
                 =================
             -->
+<<<<<<< HEAD
     <target depends="init,compile" description="Run a main class." name="run">
+=======
+    <target depends="init,compile,jar" description="Run a main class." name="run">
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
         <j2seproject1:java>
             <customize>
                 <arg line="${application.args}"/>
@@ -1072,7 +1097,11 @@ is divided into following sections:
             </customize>
         </j2seproject3:debug>
     </target>
+<<<<<<< HEAD
     <target depends="init,compile,-debug-start-debugger,-debug-start-debuggee" description="Debug project in IDE." if="netbeans.home" name="debug"/>
+=======
+    <target depends="init,compile,-debug-start-debugger,-debug-start-debuggee,jar" description="Debug project in IDE." if="netbeans.home" name="debug"/>
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
     <target depends="init" if="netbeans.home" name="-debug-start-debugger-stepinto">
         <j2seproject1:nbjpdastart stopclassname="${main.class}"/>
     </target>
@@ -1169,7 +1198,11 @@ is divided into following sections:
             </or>
         </condition>
     </target>
+<<<<<<< HEAD
     <target depends="-profile-check,-profile-pre72" description="Profile a project in the IDE." if="profiler.configured" name="profile" unless="profiler.info.jvmargs.agent">
+=======
+    <target depends="-profile-check,-profile-pre72,jar" description="Profile a project in the IDE." if="profiler.configured" name="profile" unless="profiler.info.jvmargs.agent">
+>>>>>>> 8734f56629f01dad57e957e3e1df5fb6419116e2
         <startprofiler/>
         <antcall target="run"/>
     </target>
