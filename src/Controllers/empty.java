@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Enums;
+package Controllers;
 
 /**
  *
- * @author Kali 
+ * @author Dhiaeddsn
  */
-public enum Status {PANDING,OPEN,PRESELECTION,ACCEPTED,REJECT}
+public class empty {
+    
+}

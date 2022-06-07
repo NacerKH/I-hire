@@ -8,12 +8,8 @@ package Utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import Shared.DbConfig; 
+import Utils.DbConfig; 
 
-/**
- *
- * @author KALI 
- */
 public class AppDbContext {
     
     Connection Connection; 

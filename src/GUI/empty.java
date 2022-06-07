@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package GUI;
 
 /**
  *
- * @author LENOVO
+ * @author Dhiaeddsn
  */
-public class EHireSolution {
+public class empty {
     
 }
