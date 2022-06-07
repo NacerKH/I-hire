@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Repositories;
+package Services;
 
-import Infrastructure.AppDbContext;
-import Entities.CondidatEmployee;
+import Utils.AppDbContext;
+import Models.CondidatEmployee;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
