@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ehiresolution;
+package EhireSolution;
 
 import Utils.AppDbContext;
 import Models.CondidatEmployee;
