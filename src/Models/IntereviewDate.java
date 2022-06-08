@@ -12,92 +12,75 @@ import java.util.Date;
  *
  * @author KHLIFI-MED
  */
-public class IntereviewDate {
-   int id ;
-   String intrvDate;
-  Date createdDate;
-   Date updatedDate;
-   ArrayList<Candidat> candidats; 
+public class IntereviewDate extends BaseEntity {
+
+public Date intrvDate;
+
+public Candidat candidat;
 
     public IntereviewDate() {
     }
 
-    public IntereviewDate(String intrvDate, Date createdDate, Date updatedDate, ArrayList<Candidat> candidat) {
+    public IntereviewDate(Date intrvDate, Candidat candidat) {
         this.intrvDate = intrvDate;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-        this.candidats = candidats;
+        this.candidat = candidat;
     }
 
-    public IntereviewDate(String intrvDate, int totalQuestions, int duration, Date createdDate, Date updatedDate) {
+    public IntereviewDate(Date intrvDate, Candidat candidat, int Id, Date CreatedDate, Date UpdatedDate) {
+        super(Id, CreatedDate, UpdatedDate);
         this.intrvDate = intrvDate;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
+        this.candidat = candidat;
     }
 
-    public IntereviewDate(int id, String intrvDate,  Date createdDate, Date updatedDate) {
-        this.id = id;
-        this.intrvDate = intrvDate; 
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-    }
-
-    
-    public IntereviewDate(int id, String intrvDate, Date createdDate, Date updatedDate, ArrayList<Candidat> candidat) {
-        this.id = id;
-        this.intrvDate = intrvDate; 
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-        this.candidats = candidat;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getIntrvDate() {
+    public Date getIntrvDate() {
         return intrvDate;
     }
 
-    public void setIntrvDate(String intrvDate) {
+    public void setIntrvDate(Date intrvDate) {
         this.intrvDate = intrvDate;
     }
 
+    public Candidat getCandidat() {
+        return candidat;
+    }
+
+    public void setCandidat(Candidat candidat) {
+        this.candidat = candidat;
+    }
+@Override
+    public int getId() {
+        return Id;
+    }
+@Override
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+@Override
     public Date getCreatedDate() {
-        return createdDate;
+        return CreatedDate;
     }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+@Override
+    public void setCreatedDate(Date CreatedDate) {
+        this.CreatedDate = CreatedDate;
     }
-
+@Override
     public Date getUpdatedDate() {
-        return updatedDate;
+        return UpdatedDate;
     }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+@Override
+    public void setUpdatedDate(Date UpdatedDate) {
+        this.UpdatedDate = UpdatedDate;
     }
-
-    public ArrayList<Candidat> getCandidats() {
-        return candidats;
-    }
-
-    public void setCandidats(ArrayList<Candidat> candidats) {
-        this.candidats = candidats;
-    }
-
-    
-  
 
     @Override
     public String toString() {
-        return "IntereviewDate{" + "id=" + id + ", intrvDate=" + intrvDate + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", candidat=" + candidats + '}';
+        return "IntereviewDate{" + "intrvDate=" + intrvDate + ", candidat=" + candidat + ", CreatedDate=" + CreatedDate +", UpdatedDate=" + UpdatedDate +'}';
     }
 
+   
+
+
+
+  
     
 }
