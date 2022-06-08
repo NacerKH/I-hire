@@ -5,98 +5,118 @@
  */
 package Models;
 
+//import Enums.CongeType;
+import Enums.CongeType;
+import Enums.StatusCongeType;
 import java.util.Date;
+ 
+public class Conge extends BaseEntity
+{
+   public  CongeType  Type;
+   public Date StartDate;
+   public Date EndDate;
+   public String Description;
+   public  StatusCongeType Status;
+   public Date ValidationDate;
 
-/**
- *
- * @author LENOVO
- */
-public class Conge {
-     private int id;
-  private String type;
-  private Date DateDebut;
-  private Date DateFin;
-  private String status;
-  private String description;
-  private Date DateValidation;
-
-    public Conge(int id, String type, Date DateDebut, Date DateFin, String status, String description, Date DateValidation) {
-        this.id = id;
-        this.type = type;
-        this.DateDebut = DateDebut;
-        this.DateFin = DateFin;
-        this.status = status;
-        this.description = description;
-        this.DateValidation = DateValidation;
+    public Conge() {
     }
 
-    public Conge(String type, Date DateDebut, Date DateFin, String status, String description, Date DateValidation) {
-        this.type = type;
-        this.DateDebut = DateDebut;
-        this.DateFin = DateFin;
-        this.status = status;
-        this.description = description;
-        this.DateValidation = DateValidation;
+    public Conge(CongeType Type, Date StartDate, Date EndDate, String Description, StatusCongeType Status, Date ValidationDate) {
+        this.Type = Type;
+        this.StartDate = StartDate;
+        this.EndDate = EndDate;
+        this.Description = Description;
+        this.Status = Status;
+        this.ValidationDate = ValidationDate;
     }
 
-    public int getId() {
-        return id;
+    public Conge(CongeType Type, Date StartDate, Date EndDate, String Description, StatusCongeType Status, Date ValidationDate, int Id, Date CreatedDate, Date UpdatedDate) {
+        super(Id, CreatedDate, UpdatedDate);
+        this.Type = Type;
+        this.StartDate = StartDate;
+        this.EndDate = EndDate;
+        this.Description = Description;
+        this.Status = Status;
+        this.ValidationDate = ValidationDate;
     }
 
-    public String getType() {
-        return type;
+    public CongeType getType() {
+        return Type;
     }
 
-    public Date getDateDebut() {
-        return DateDebut;
+    public void setType(CongeType Type) {
+        this.Type = Type;
     }
 
-    public Date getDateFin() {
-        return DateFin;
+    public Date getStartDate() {
+        return StartDate;
     }
 
-    public String getStatus() {
-        return status;
+    public void setStartDate(Date StartDate) {
+        this.StartDate = StartDate;
+    }
+
+    public Date getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(Date EndDate) {
+        this.EndDate = EndDate;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
-    public Date getDateValidation() {
-        return DateValidation;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public StatusCongeType getStatus() {
+        return Status;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStatus(StatusCongeType Status) {
+        this.Status = Status;
     }
 
-    public void setDateDebut(Date DateDebut) {
-        this.DateDebut = DateDebut;
+    public Date getValidationDate() {
+        return ValidationDate;
     }
 
-    public void setDateFin(Date DateFin) {
-        this.DateFin = DateFin;
+    public void setValidationDate(Date ValidationDate) {
+        this.ValidationDate = ValidationDate;
     }
-
-    public void setStatus(String status) {
-        this.status = status;
+@Override    public int getId() {
+        return Id;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
+@Override
+    public void setId(int Id) {
+        this.Id = Id;
     }
-
-    public void setDateValidation(Date DateValidation) {
-        this.DateValidation = DateValidation;
+@Override
+    public Date getCreatedDate() {
+        return CreatedDate;
+    }
+@Override
+    public void setCreatedDate(Date CreatedDate) {
+        this.CreatedDate = CreatedDate;
+    }
+@Override
+    public Date getUpdatedDate() {
+        return UpdatedDate;
+    }
+@Override
+    public void setUpdatedDate(Date UpdatedDate) {
+        this.UpdatedDate = UpdatedDate;
     }
 
     @Override
     public String toString() {
-        return "Cong\u00e9{" + "id=" + id + ", type=" + type + ", DateDebut=" + DateDebut + ", DateFin=" + DateFin + ", status=" + status + ", description=" + description + ", DateValidation=" + DateValidation + '}';
+        return "Conge{" + "Type=" + Type + ", StartDate=" + StartDate + ", EndDate=" + EndDate + ", Description=" + Description + ", Status=" + Status + ", ValidationDate=" + ValidationDate + '}';
     }
+   
 }
+
+
