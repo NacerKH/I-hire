@@ -29,6 +29,7 @@ public class QuestionService {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Main Methods">
+    
     // <editor-fold defaultstate="collapsed" desc="GetAll">
     public ArrayList<Question> GetAll() {
         ArrayList<Question> resultList = new ArrayList<Question>();
@@ -53,6 +54,7 @@ public class QuestionService {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="GetAllByIdTest">
     public ArrayList<Question> GetAllByIdTest(int id) {
         ArrayList<Question> resultList = new ArrayList<Question>();
@@ -77,6 +79,7 @@ public class QuestionService {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="GetById">
     public Question GetById(int id) {
         try {
@@ -182,7 +185,7 @@ public class QuestionService {
     }
     // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="DeleteTestQuestion(">
+    // <editor-fold defaultstate="collapsed" desc="DeleteTestQuestion">
     public boolean DeleteTestQuestion(int id) {
 
         try {
@@ -199,8 +202,11 @@ public class QuestionService {
     // </editor-fold>
 
     // </editor-fold>
+    
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitQuestion">
     private Question InitQuestion(ResultSet result) {
         try {
             return new Question(

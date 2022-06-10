@@ -23,7 +23,7 @@ public class CondidatEmployeeRepository {
 
     Connection Connection;
 
-// <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
+    // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
     private CondidatEmployeeRepository() {
         Connection = AppDbContext.GetInstance().GetDbConnection();
     }
@@ -35,6 +35,7 @@ public class CondidatEmployeeRepository {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Main Methods">
+    
     // <editor-fold defaultstate="collapsed" desc="GetAll">
     public ArrayList<CondidatEmployee> GetAll() {
         ArrayList<CondidatEmployee> resultList = new ArrayList<CondidatEmployee>();
@@ -107,8 +108,7 @@ public class CondidatEmployeeRepository {
         return false;
     }
     // </editor-fold>
-
-    // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Put">
     public boolean Put(CondidatEmployee model) {
 
@@ -139,6 +139,7 @@ public class CondidatEmployeeRepository {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Delete">
     public boolean Delete(int id) {
 
@@ -158,8 +159,10 @@ public class CondidatEmployeeRepository {
     // </editor-fold>
 
     // </editor-fold>
+
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitCondidatEmployee">
     private CondidatEmployee InitCondidatEmployee(ResultSet result) {
         try {
           

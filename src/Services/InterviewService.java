@@ -6,7 +6,7 @@
 package Services;
 
 import Models.Interview;
-import Utils.MaConnexion;
+import Utils.AppDbContext;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -23,15 +23,86 @@ import java.util.logging.Logger;
  */
 public class InterviewService {
 
-    //var
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection Connection;  
+    
+    // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
+    private InterviewService() 
+    {
+        Connection = AppDbContext.GetInstance().GetDbConnection(); 
+    }
+    private static InterviewService instance = new InterviewService(); 
+    
+    public static InterviewService GetInstance() 
+    {
+        return instance; 
+    }
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Main Methods">
+    
+    // <editor-fold defaultstate="collapsed" desc="GetAll">
+    public ArrayList<Interview> GetAll()
+    {
+        ArrayList<Interview> resultList = new ArrayList<Interview>(); 
+        try
+        {
+            String req = "SELECT * FROM interview"; 
+            PreparedStatement ps = Connection.prepareStatement(req);
+            ResultSet result = ps.executeQuery(); 
+                 
+            while (result.next()) {
+                
+                try
+                {
+                    resultList.add(InitInterview(result)); 
+                }
+                catch(Exception ex)
+                {
+                    System.err.println("[Exception] " + ex.getMessage());
+                }
+            }
+        }
+        catch (SQLException ex) {
+            System.err.println("[SQL Exception] " + ex.getMessage());
+        }
+        
+        return resultList; 
+    }
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="GetById">
+     public Interview GetById(int id) {
+        Interview i = new Interview();
+        String req = "SELECT * FROM `interview` WHERE `id_interview`=?";
+        try {
+            PreparedStatement ps = Connection.prepareStatement(req);
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
 
-    //create
-    public void insertInterview(Interview i) {
+                try
+                {
+                    return InitInterview(result); 
+                }
+                catch(Exception ex)
+                {
+                    System.err.println("[Exception] " + ex.getMessage());
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterviewService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i;
+    }
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Post">
+     public void Post(Interview i) {
         String req = "INSERT INTO `interview`(`date_interview`, `update_interview`, `type_interview`, `statut`) "
                 + "VALUES (?,?,?,?)";
         try {
-            PreparedStatement ps = cnx.prepareStatement(req);
+            PreparedStatement ps = Connection.prepareStatement(req);
 
             ps.setDate(1, i.getDate_interview());
             ps.setDate(2, i.getUpdate_interview());
@@ -43,64 +114,16 @@ public class InterviewService {
         } catch (SQLException ex) {
             Logger.getLogger(InterviewService.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
-    //select by id
-    public Interview getInterviewById(int id) {
-        Interview i = new Interview();
-        String req = "SELECT * FROM `interview` WHERE `id_interview`=?";
-        try {
-            PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-
-                i.setId_interview(rs.getInt(1));
-                i.setDate_interview(rs.getDate(2));
-                i.setUpdate_interview(rs.getDate(3));
-                i.setType_interview(rs.getString(4));
-                i.setStatut(rs.getString(5));
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(InterviewService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return i;
-    }
-
-    // select 
-    public List<Interview> fetchInterviews() {
-        List<Interview> interviews = new ArrayList<>();
-
-        try {
-            String req = "SELECT * FROM `interview`";
-            PreparedStatement ps = cnx.prepareStatement(req);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Interview i = new Interview();
-                i.setId_interview(rs.getInt(1));
-                i.setDate_interview(rs.getDate(2));
-                i.setUpdate_interview(rs.getDate(3));
-                i.setStatut(rs.getString(4));
-                i.setType_interview(rs.getString(5));
-                interviews.add(i);
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(InterviewService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return interviews;
-    }
-    //update
-
-    public void updateInterviewById(Interview i) {
+    // </editor-fold>
+     
+    // <editor-fold defaultstate="collapsed" desc="Put">
+   public void Put(Interview i) {
 
         try {
             String req = "UPDATE `interview` SET `date_interview`=?, `update_interview`=?,"
                     + "`type_interview`=?,`statut`=? WHERE id_interview=" + i.getId_interview();
-            PreparedStatement ps = cnx.prepareStatement(req);
+            PreparedStatement ps = Connection.prepareStatement(req);
             ps.setDate(1,(Date) i.getDate_interview());
             ps.setDate(2,(Date) i.getUpdate_interview());
             ps.setString(3, i.getType_interview());
@@ -113,19 +136,48 @@ public class InterviewService {
         }
 
     }
-    //delete
-    public void deleteInterview(int id){
+    // </editor-fold>
+     
+    // <editor-fold defaultstate="collapsed" desc="Delete">
+    public void Delete(int id){
         String req="DELETE FROM `interview` WHERE id_interview= ?";
         try {
-            PreparedStatement ps = cnx.prepareStatement(req);
+            PreparedStatement ps = Connection.prepareStatement(req);
             ps.setInt(1, id);
             ps.executeUpdate();
             System.out.println("ligne supprimée");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
-                
-        
     }
+    // </editor-fold>
+     
+    // </editor-fold>
+  
+    // <editor-fold defaultstate="collapsed" desc="Other Methods">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    private Interview InitInterview(ResultSet result)
+    {
+        try
+        { 
+            return new Interview(
+                result.getInt("id_interview"),
+                result.getDate("date_interview"),
+                result.getDate("update_interview"),
+                result.getString("type_interview"),
+                result.getString("statut")
+            ); 
+        }
+        catch(SQLException ex)
+        {
+            System.err.println("[Exception] " + ex.getMessage());
+        }
+       
+        return null; 
+    }
+    // </editor-fold>
+    
+    // </editor-fold>
 
 }

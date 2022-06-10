@@ -154,6 +154,7 @@ public class CongeRepository {
     // </editor-fold>
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
     // <editor-fold defaultstate="collapsed" desc="InitConge">
     private Conge InitConge(ResultSet result) {

@@ -7,7 +7,7 @@ package Services;
 
 
 import Models.Candidat;
-import Util.AppDbContext;
+import Utils.AppDbContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +34,7 @@ public class CandidatRepository {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Main Methods">
+    
     // <editor-fold defaultstate="collapsed" desc="GetAll">
     public ArrayList<Candidat> GetAll() {
         ArrayList<Candidat> resultList = new ArrayList<Candidat>();
@@ -58,30 +59,7 @@ public class CandidatRepository {
     }
 
     // </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="GetAllByIdTest">
-    public ArrayList<Candidat> GetAllByIdIntereviewDate(int id) {
-        ArrayList<Candidat> resultList = new ArrayList<Candidat>();
-        try {
-            String req = "SELECT * FROM candidat WHERE idIntereviewDate = " + id + ";";
-            PreparedStatement ps = Connection.prepareStatement(req);
-            ResultSet result = ps.executeQuery();
-
-            while (result.next()) {
-
-                try {
-                    resultList.add(InitCandidat(result));
-                } catch (Exception ex) {
-                    System.err.println("[Exception] " + ex.getMessage());
-                }
-            }
-        } catch (SQLException ex) {
-            System.err.println("[SQL Exception] " + ex.getMessage());
-        }
-
-        return resultList;
-    }
-
-    // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="GetById">
     public Candidat GetById(int id) {
         try {
@@ -179,6 +157,31 @@ public class CandidatRepository {
         return false;
     }
     // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="GetAllByIntereviewDateId">
+    public ArrayList<Candidat> GetAllByIntereviewDateId(int id) {
+        ArrayList<Candidat> resultList = new ArrayList<Candidat>();
+        try {
+            String req = "SELECT * FROM candidat WHERE idIntereviewDate = " + id + ";";
+            PreparedStatement ps = Connection.prepareStatement(req);
+            ResultSet result = ps.executeQuery();
+
+            while (result.next()) {
+
+                try {
+                    resultList.add(InitCandidat(result));
+                } catch (Exception ex) {
+                    System.err.println("[Exception] " + ex.getMessage());
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println("[SQL Exception] " + ex.getMessage());
+        }
+
+        return resultList;
+    }
+
+    // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="DeleteIntereviewDateCandidat(">
     public boolean DeleteIntereviewDateCandidat(int id) {
@@ -197,8 +200,10 @@ public class CandidatRepository {
     // </editor-fold>
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitCandidat">
     private Candidat InitCandidat(ResultSet result) {
         try {
             return new Candidat(

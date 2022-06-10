@@ -7,8 +7,9 @@ package Services;
 
 import Models.Candidat;
 import Models.IntereviewDate;
-import Util.AppDbContext;
+import Utils.AppDbContext;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +23,7 @@ import java.sql.Statement;
  */
 public class IntereviewDateRepository {
     
-     Connection Connection;
+    Connection Connection;
     IntereviewDate inter;
 
     // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
@@ -47,12 +48,8 @@ public class IntereviewDateRepository {
             ResultSet result = ps.executeQuery();
 
             while (result.next()) {
-
                 try {
-                    IntereviewDate intereviewDate = InitIntereviewDate(result);
-                    ArrayList<Candidat> candidatList = instancecandidatRepo.GetAllByIdIntereviewDate(intereviewDate.getId());
-                    intereviewDate.setCandidats(candidatList);
-                    resultList.add(intereviewDate);
+                     resultList.add(InitIntereviewDate(result)); 
                 } catch (Exception ex) {
                     System.err.println("[Exception] " + ex.getMessage());
                 }
@@ -72,15 +69,7 @@ public class IntereviewDateRepository {
             PreparedStatement ps = Connection.prepareStatement(req);
             ResultSet result = ps.executeQuery();
             while (result.next()) {
-
-                try {
-                    IntereviewDate intereviewDate = InitIntereviewDate(result);
-                    ArrayList<Candidat> candidatList = instancecandidatRepo.GetAllByIdIntereviewDate(intereviewDate.getId());
-                    inter.setCandidats(candidatList);
-                    return intereviewDate;
-                } catch (Exception ex) {
-                    System.err.println("[Exception] " + ex.getMessage());
-                }
+                return InitIntereviewDate(result);                  
             }
         } catch (SQLException ex) {
             System.err.println("[SQL Exception] " + ex.getMessage());
@@ -98,7 +87,7 @@ public class IntereviewDateRepository {
                     + " VALUES (?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
           //  ps.setInt(1, model.getId());
-            ps.setString(1, model.getIntrvDate());
+            ps.setDate(1, new Date(model.getIntrvDate().getTime()));
             ps.setDate(2, new java.sql.Date(model.getCreatedDate().getTime()));
             ps.setDate(3, new java.sql.Date(model.getUpdatedDate().getTime()));
             ps.executeUpdate();
@@ -106,10 +95,14 @@ public class IntereviewDateRepository {
                 if (generatedKeys.next()) {
                     int idq = generatedKeys.getInt(1);
                     System.out.println(idq);
-                    model.getCandidats().forEach(q -> {
+                    
+                    // ???
+                    model.getCandidat().forEach(q -> {
                         q.setIdIntereviewDate(idq);
                         instancecandidatRepo.Post(q);
                     });
+                    
+                    
                 } else {
                     System.err.println("Creating test failed, no ID obtained.");
                     return false;
@@ -132,7 +125,8 @@ public class IntereviewDateRepository {
 
             PreparedStatement ps = Connection.prepareStatement(req);
 
-            ps.setString(1, model.getIntrvDate());
+            
+            ps.setDate(1, new Date(model.getIntrvDate().getTime()));
             ps.setDate(2, new java.sql.Date(model.getCreatedDate().getTime()));
             ps.setDate(3, new java.sql.Date(model.getUpdatedDate().getTime()));
             ps.executeUpdate();
@@ -167,15 +161,18 @@ public class IntereviewDateRepository {
     // </editor-fold>
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
     // <editor-fold defaultstate="collapsed" desc="InitUser">
     private IntereviewDate InitIntereviewDate(ResultSet result) {
         try {
             return new IntereviewDate(
-                    result.getInt("Id"),
-                    result.getString("intrvDate"),
-                    result.getDate("createdDate"),
-                    result.getDate("updatedDate"));
+                result.getDate("intrvDate"),
+                (Candidat)result.getObject("candidat"),
+                result.getInt("Id"),
+                result.getDate("CreatedDate"),
+                result.getDate("UpdatedDate")
+            ); 
         } catch (SQLException ex) {
             System.err.println("[Exception] " + ex.getMessage());
         }
@@ -185,8 +182,4 @@ public class IntereviewDateRepository {
     // </editor-fold>
 
     // </editor-fold>
-
-    public void Put(Candidat c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

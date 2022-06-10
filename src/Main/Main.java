@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package Main;
 
 /**
  *
- * @author KHLIFI-MED
+ * @author Dhiaeddsn
  */
-public class InterViewController {
+public class Main {
     
+    public static void main(String[] args){
+        
+    }
 }

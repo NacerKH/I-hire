@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import Enums.UserType;
+import java.sql.Date;
 
 public class UserServices 
 {
@@ -141,7 +142,7 @@ public class UserServices
             ps.setString(5, model.getProfilePicture());
             ps.setDate(6, new java.sql.Date(model.getBirthday().getTime()));
             ps.setString(7, model.getJobTitle());
-            //ps.setDate(8, new Date(model.getCreatedDate().getTime()));
+            ps.setDate(8, new Date(model.getCreatedDate().getTime()));
             ps.setTimestamp(8, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
             ps.executeUpdate();
             

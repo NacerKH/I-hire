@@ -163,8 +163,10 @@ public class TestService{
     // </editor-fold>
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitTest">
     private Test InitTest(ResultSet result) {
         try {
             return new Test(
