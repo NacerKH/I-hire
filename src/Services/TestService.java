@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Repositories;
+package Services;
 
-import Entities.Question;
-import Entities.Test;
-import Infrastructure.AppDbContext;
+import Models.Question;
+import Models.Test;
+import Utils.AppDbContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,18 +15,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Statement;
 
-public class TestRepository {
+public class TestService{
 
     Connection Connection;
 
     // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
-    private TestRepository() {
+    private TestService() {
         Connection = AppDbContext.GetInstance().GetDbConnection();
     }
-    private static TestRepository instance = new TestRepository();
-    private static QuestionRepository instancequestionRepo = new QuestionRepository();
+    private static TestService instance = new TestService();
+    private static QuestionService instancequestionRepo = new QuestionService();
 
-    public static TestRepository GetInstance() {
+    public static TestService GetInstance() {
         return instance;
     }
     // </editor-fold>
@@ -93,7 +93,7 @@ public class TestRepository {
             PreparedStatement ps = Connection.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, model.getTopic());
             ps.setInt(2, model.getTotalQuestions());
-            ps.setFloat(3, model.getDuration());
+            ps.setInt(3, model.getDuration());
             ps.setDate(4, new java.sql.Date(model.getCreatedDate().getTime()));
             ps.setDate(5, new java.sql.Date(model.getUpdatedDate().getTime()));
             ps.executeUpdate();
@@ -128,7 +128,7 @@ public class TestRepository {
 
             ps.setString(1, model.getTopic());
             ps.setInt(2, model.getTotalQuestions());
-            ps.setFloat(3, model.getDuration());
+            ps.setInt(3, model.getDuration());
             ps.setDate(4, new java.sql.Date(model.getCreatedDate().getTime()));
             ps.setDate(5, new java.sql.Date(model.getUpdatedDate().getTime()));
             ps.executeUpdate();
@@ -163,8 +163,10 @@ public class TestRepository {
     // </editor-fold>
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    // <editor-fold defaultstate="collapsed" desc="InitUser">
+    
+    // <editor-fold defaultstate="collapsed" desc="InitTest">
     private Test InitTest(ResultSet result) {
         try {
             return new Test(
