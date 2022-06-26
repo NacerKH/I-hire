@@ -5,6 +5,7 @@
  */
 package Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -173,6 +174,10 @@ public class Question {
     @Override
     public String toString() {
         return "Question{" + "id=" + id + ", description=" + description + ", ChoiceA=" + ChoiceA + ", ChoiceB=" + ChoiceB + ", createdDate=" + createdDate + ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", rightAnswer=" + rightAnswer + ", updatedDate=" + updatedDate + ", test=" + test + ", idTest=" + idTest + '}';
+    }
+
+    public void setUpdatedDate(LocalDate date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

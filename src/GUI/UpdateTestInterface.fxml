@@ -32,7 +32,7 @@
                   <Text fx:id="fxErrorTopic" fill="#fd0c0c" layoutX="170.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="452.13668060302734" />
                   <Text fx:id="fxErrorTotalQuestions" fill="#fd0c0c" layoutX="354.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="435.3164310455322" />
                   <TextField fx:id="fxTopic" layoutX="161.0" layoutY="96.0" prefHeight="53.0" prefWidth="655.0" promptText="Titre" />
-                  <Text layoutX="387.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Examen" wrappingWidth="202.0">
+                  <Text layoutX="387.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Test" wrappingWidth="202.0">
                      <font>
                         <Font name="Arial" size="26.0" />
                      </font>

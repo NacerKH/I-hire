@@ -53,25 +53,18 @@ public class TestInterfaceController implements Initializable {
     private Text fxErrorTotalQuestions;
     @FXML
     private Button btnCancel;
+    Test test = new Test();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        fxDuration.getItems().add("15 Min");
-        fxDuration.getItems().add("30 Min");
-        fxDuration.getItems().add("45 Min");
-        fxDuration.getItems().add("1H");
-        fxDuration.getItems().add("1H 30Min");
-        fxDuration.getItems().add("2H");
-        fxDuration.setValue("15 Min");
-
+        initData();
     }
 
     @FXML
     private void addQuestions(ActionEvent event) {
-        Test test = new Test();
 
         fxErrorTopic.setText(TestQuestionValidation.ifInputStringEmptyDO("Titre", fxTopic.getText()));
         fxErrorTotalQuestions.setText(TestQuestionValidation.validateStringOfNumber("Nombre de question à selectionné",
@@ -115,11 +108,9 @@ public class TestInterfaceController implements Initializable {
             try {
                 Parent root = loader.load();
                 QuestionInterfaceController controller = loader.getController();
-                controller.setTest(test);
-  
-
                 fxaddQuestions.getScene().setRoot(root);
                 controller.jsp(test);
+                
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -127,11 +118,35 @@ public class TestInterfaceController implements Initializable {
         }
     }
 
-    @FXML
-    private void cancel(ActionEvent event) {
+    public void initData() {
+        fxDuration.getItems().add("15 Min");
+        fxDuration.getItems().add("30 Min");
+        fxDuration.getItems().add("45 Min");
+        fxDuration.getItems().add("1H");
+        fxDuration.getItems().add("1H 30Min");
+        fxDuration.getItems().add("2H");
+        fxDuration.setValue("15 Min");
     }
 
+    @FXML
+    private void cancel(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "../GUI/ListOffreInterface.fxml"
+                    )
+            );
+            try {
+                Parent root = loader.load();
+                fxaddQuestions.getScene().setRoot(root);
+                
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }
+
+    public void jsp(int idOffre) {
+        test.setIdOffre(idOffre);
+        initData();
+
+    }
 }
-//
-//    Stage stage = (Stage) fxaddQuestions.getScene().getWindow();
-//    stage.close();

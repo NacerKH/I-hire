@@ -5,50 +5,50 @@
  */
 package Models;
 
+import java.util.Date;
+import java.util.List;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 /**
  *
  * @author e.bentijani
  */
 public class TableQuestionDto {
     private int idQuestion;
-    private int lastUpdate;
-    private int question;
-
-    public TableQuestionDto(int idQuestion, int lastUpdate, int question) {
+    private String question;
+    public TableQuestionDto(int idQuestion, Date lastUpdate, String question) {
         this.idQuestion = idQuestion;
-        this.lastUpdate = lastUpdate;
         this.question = question;
     }
 
 
-
-    public int getNbQuestion() {
+    public int getIdQuestion() {
         return idQuestion;
     }
 
-    public void setNbQuestion(int nbQuestion) {
-        this.idQuestion = nbQuestion;
+    public void setIdQuestion(int idQuestion) {
+        this.idQuestion = idQuestion;
     }
 
-    public int getLastUpdate() {
-        return lastUpdate;
-    }
 
-    public void setLastUpdate(int lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
 
-    public int getQuestion() {
+    public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(int question) {
+    public void setQuestion(String question) {
         this.question = question;
     }
 
-     @Override
+
+
+    @Override
     public String toString() {
-        return "TableQuestionDto{" + "idQuestion=" + idQuestion + ", lastUpdate=" + lastUpdate + ", question=" + question + '}';
-    } 
+        return "TableQuestionDto{" + "idQuestion=" + idQuestion + ", question=" + question + '}';
+    }
+
     
 }

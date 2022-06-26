@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Models.JobOffer;
 import Utils.AppDbContext;
+import java.sql.Types;
 
 /**
  *
@@ -110,7 +111,7 @@ public class JobOfferService {
             ps.setString(4, p.getStatus());
             ps.setDate(5, (Date) p.getCreatedDate());
             ps.setDate(6, (Date) p.getUpdatedDate());
-            ps.setInt(7, p.getCategory().getId_cat());
+            ps.setInt(7, p.getCategory());
             ps.executeUpdate();
             System.out.println("JobOffer ajouté");
         } catch (SQLException ex) {
@@ -122,7 +123,7 @@ public class JobOfferService {
     // <editor-fold defaultstate="collapsed" desc="Put">
       public void Put(JobOffer p){
         try {
-            String Request3 ="UPDATE `joboffer` SET `jobDescription`=?,`AverageSallary`=?,`totalPlaces`=?,`Status`=?,`CreatedDate`=?,`UpdatedDate`=?,`category`=? WHERE id ="+ p.getId();
+            String Request3 ="UPDATE `joboffer` SET `jobDescription`=?,`AverageSallary`=?,`totalPlaces`=?,`Status`=?,`CreatedDate`=?,`UpdatedDate`=?,`category`=? ,`idTest`=? WHERE id ="+ p.getId();
             PreparedStatement ps = Connection.prepareStatement(Request3);
             ps.setString(1, p.getJobDescription());
             ps.setInt(2, p.getAverageSallary());
@@ -130,7 +131,22 @@ public class JobOfferService {
             ps.setString(4, p.getStatus());
             ps.setDate(5, (Date) p.getCreatedDate());
             ps.setDate(6, (Date) p.getUpdatedDate());
-            ps.setInt(7, p.getCategory().getId_cat());
+            ps.setInt(7, p.getCategory());
+            ps.setInt(8, p.getIdTest());
+            ps.executeUpdate();
+            System.out.println("JobOffer modifié");
+        } catch (SQLException ex) {
+            Logger.getLogger(JobOfferService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+      
+      
+       public void PutNullTest(JobOffer p){
+        try {
+            String Request3 ="UPDATE `joboffer` SET `idTest`=? WHERE id ="+ p.getId();
+            PreparedStatement ps = Connection.prepareStatement(Request3);
+
+            ps.setNull(1,Types.BIGINT);
             ps.executeUpdate();
             System.out.println("JobOffer modifié");
         } catch (SQLException ex) {
@@ -177,7 +193,8 @@ public class JobOfferService {
                 result.getString("Status"),
                 result.getDate("CreatedDate"),
                 result.getDate("UpdatedDate"),
-                (Category)result.getObject("category") 
+                result.getInt("category") ,
+                result.getInt("idTest")
             ); 
         }
         catch(SQLException ex)

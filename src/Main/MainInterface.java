@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Main;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,7 +28,8 @@ public class MainInterface extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("ListQuestionsInterface.fxml"));
+            
+            Parent root =FXMLLoader.load(getClass().getResource("../GUI/ListOffreInterface.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("E Hire");
             primaryStage.setScene(scene);

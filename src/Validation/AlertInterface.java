@@ -1,5 +1,6 @@
 package Validation;
 
+import java.util.Optional;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,9 +20,20 @@ import javafx.stage.Stage;
 
 public class AlertInterface {
 
-    public static void showAlertWithHeaderText(Stage stage, String msg) {
+    public static void showAlertWithHeaderTextWARNING(Stage stage, String msg) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setContentText(msg);
         alert.showAndWait();
+    }
+    
+    public static boolean showAlertWithHeaderTextCONFIRMATION(Stage stage, String msg) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(msg);
+        Optional<ButtonType> result = alert.showAndWait();
+	if(!result.isPresent() || result.get() != ButtonType.OK) {
+		return false;
+	} else {
+		return true;
+	}
     }
 }

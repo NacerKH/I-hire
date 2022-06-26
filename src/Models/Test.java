@@ -20,10 +20,14 @@ public class Test {
     Date createdDate;
     Date updatedDate;
     ArrayList<Question> questions; 
-
+    int idOffre;
     public Test() {
    List <Question> questions = new ArrayList <Question>();
 
+    }
+
+    public Test(int id) {
+        this.id = id;
     }
 
     public Test(String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate, ArrayList<Question> questions) {
@@ -41,6 +45,17 @@ public class Test {
         this.duration = duration;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
+    }
+
+    public Test(int id, String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate, ArrayList<Question> questions, int idOffre) {
+        this.id = id;
+        this.topic = topic;
+        this.totalQuestions = totalQuestions;
+        this.duration = duration;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.questions = questions;
+        this.idOffre = idOffre;
     }
 
     public Test(int id, String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate) {
@@ -74,6 +89,14 @@ public class Test {
 
     public String getTopic() {
         return topic;
+    }
+
+    public int getIdOffre() {
+        return idOffre;
+    }
+
+    public void setIdOffre(int idOffre) {
+        this.idOffre = idOffre;
     }
 
     public void setTopic(String topic) {

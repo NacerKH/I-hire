@@ -5,8 +5,10 @@
  */
 package Controllers;
 
+import Models.JobOffer;
 import Models.Question;
 import Models.Test;
+import Services.JobOfferService;
 import Services.TestService;
 import Validation.TestQuestionValidation;
 import java.io.IOException;
@@ -34,6 +36,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Validation.AlertInterface;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -46,8 +50,6 @@ public class QuestionInterfaceController implements Initializable {
     private Text fxErrorChoixD;
     @FXML
     private Text fxErrorChoixC;
-    @FXML
-    private Button aDDTest;
     @FXML
     private Text fxQuestNum;
     @FXML
@@ -74,10 +76,12 @@ public class QuestionInterfaceController implements Initializable {
     private Text fxErrorChoixA;
     @FXML
     private Text fxErrorChoixB;
-    @FXML
-    private Button aDDQuestion;
     private Test test;
     TestService testRepo = TestService.GetInstance();
+    @FXML
+    private Button aDDTest;
+    @FXML
+    private Button aDDQuestion;
 
     public void setFxQuestNum(String fxQuestNum) {
         this.fxQuestNum.setText(fxQuestNum);
@@ -105,7 +109,7 @@ public class QuestionInterfaceController implements Initializable {
 
             if (test.getQuestions().size() < test.getTotalQuestions()) {
                 Stage stage = (Stage) fxrRepC.getScene().getWindow();
-                AlertInterface.showAlertWithHeaderText(stage, "le nombre de questions doit être supérieur ou égal aux membres de questions a sélectionné");
+                AlertInterface.showAlertWithHeaderTextWARNING(stage, "le nombre de questions doit être supérieur ou égal aux membres de questions a sélectionné");
                 FXMLLoader loader = new FXMLLoader(
                         getClass().getResource(
                                 "../GUI/QuestionInterface.fxml"
@@ -127,8 +131,25 @@ public class QuestionInterfaceController implements Initializable {
                     System.out.println(ex.getMessage());
                 }
             } else {
-                testRepo.Post(test);
-                System.out.println("Controllers.QuestionInterfaceController.aDDTest()" + test);
+               int idTest=testRepo.Post(test);
+                JobOfferService jobOfferService = JobOfferService.GetInstance();
+               JobOffer offre=jobOfferService.GetById(test.getIdOffre());
+
+             offre.setIdTest(idTest);
+              jobOfferService.Put(offre);
+              
+                     FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "../GUI/ListOffreInterface.fxml"
+                    )
+            );
+            try {
+                Parent root = loader.load();
+                fxChoixA.getScene().setRoot(root);
+                
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
             }
         }
     }
@@ -139,8 +160,8 @@ public class QuestionInterfaceController implements Initializable {
 
     @FXML
     private void aDDQuestion(ActionEvent event) {
-        validateQuestion();
-        FXMLLoader loader = new FXMLLoader(
+   if (validateQuestion()) {        
+       FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
                         "../GUI/QuestionInterface.fxml"
                 )
@@ -148,7 +169,6 @@ public class QuestionInterfaceController implements Initializable {
         try {
             Parent root = loader.load();
             QuestionInterfaceController controller = loader.getController();
-
             controller.jsp(test);
             fxDescription.getScene().setRoot(root);
             if (test.getQuestions() == null) {
@@ -160,7 +180,7 @@ public class QuestionInterfaceController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
+   }
     }
 
     public boolean validateQuestion() {

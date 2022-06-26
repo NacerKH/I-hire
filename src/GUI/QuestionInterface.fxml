@@ -21,7 +21,7 @@
                <children>
                   <Text fx:id="fxErrorChoixD" fill="#fd0c0c" layoutX="347.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
                   <Text fx:id="fxErrorChoixC" fill="#fd0c0c" layoutX="347.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
-                  <Button fx:id="aDDTest" layoutX="126.0" layoutY="465.0" mnemonicParsing="false" onAction="#aDDTest" prefHeight="45.0" prefWidth="384.0" style="-fx-background-color: #21848B;" text="Ajouter Examen" textFill="WHITE" />
+                  <Button fx:id="aDDTest" layoutX="126.0" layoutY="465.0" mnemonicParsing="false" onAction="#aDDTest" prefHeight="45.0" prefWidth="384.0" style="-fx-background-color: #21848B;" text="Ajouter Test" textFill="WHITE" />
                   <SVGPath />
                   <Text fx:id="fxQuestNum" fill="#262424" layoutX="536.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="143.0702667236328">
                      <font>

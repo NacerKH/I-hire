@@ -19,12 +19,17 @@ public class JobOffer {
     private String Status;
     private Date CreatedDate;
     private Date UpdatedDate;
-    private Category category;
-
+    private int category;
+    private int idTest;
+    
     public JobOffer() {
     }
 
-    public JobOffer(String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate, Category category) {
+    public JobOffer(int id) {
+        this.id = id;
+    }
+
+    public JobOffer(String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate, int category) {
         this.jobDescription = jobDescription;
         this.AverageSallary = AverageSallary;
         this.totalPlaces = totalPlaces;
@@ -34,7 +39,17 @@ public class JobOffer {
         this.category = category;
     }
 
-    public JobOffer(int id, String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate, Category category) {
+    public JobOffer(int id, String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate) {
+        this.id = id;
+        this.jobDescription = jobDescription;
+        this.AverageSallary = AverageSallary;
+        this.totalPlaces = totalPlaces;
+        this.Status = Status;
+        this.CreatedDate = CreatedDate;
+        this.UpdatedDate = UpdatedDate;
+    }
+
+    public JobOffer(int id, String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate, int category) {
         this.id = id;
         this.jobDescription = jobDescription;
         this.AverageSallary = AverageSallary;
@@ -43,6 +58,19 @@ public class JobOffer {
         this.CreatedDate = CreatedDate;
         this.UpdatedDate = UpdatedDate;
         this.category = category;
+    }
+
+
+    public JobOffer(int id, String jobDescription, int AverageSallary, int totalPlaces, String Status, Date CreatedDate, Date UpdatedDate, int category, int idTest) {
+        this.id = id;
+        this.jobDescription = jobDescription;
+        this.AverageSallary = AverageSallary;
+        this.totalPlaces = totalPlaces;
+        this.Status = Status;
+        this.CreatedDate = CreatedDate;
+        this.UpdatedDate = UpdatedDate;
+        this.category = category;
+        this.idTest = idTest;
     }
 
     public int getId() {
@@ -101,12 +129,20 @@ public class JobOffer {
         this.UpdatedDate = UpdatedDate;
     }
 
-    public Category getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(int category) {
         this.category = category;
+    }
+
+    public int getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(int idTest) {
+        this.idTest = idTest;
     }
 
     @Override

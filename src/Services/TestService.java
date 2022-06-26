@@ -85,9 +85,9 @@ public class TestService{
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Post">
-    public boolean Post(Test model) {
+    public int Post(Test model) {
+         int idtest=-1;
         try {
-
             String req = "INSERT INTO `test`(`topic`, `totalQuestions`, `duration`, `createdDate`, `updatedDate`)"
                     + " VALUES (?,?,?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
@@ -100,20 +100,21 @@ public class TestService{
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int idq = generatedKeys.getInt(1);
+                    idtest=idq;
                     model.getQuestions().forEach(q -> {
                         q.setIdTest(idq);
                         instancequestionRepo.Post(q);
                     });
                 } else {
                     System.err.println("Creating test failed, no ID obtained.");
-                    return false;
+                    return idtest;
                 }
             }
-            return true;
+            return idtest;
         } catch (SQLException ex) {
             System.err.println("[SQL Exception] " + ex.getMessage());
         }
-        return false;
+        return idtest;
     }
     // </editor-fold>
 
@@ -152,6 +153,7 @@ public class TestService{
                 PreparedStatement ps = Connection.prepareStatement(req);
                 ps.setInt(1, id);
                 ps.executeUpdate();
+                System.out.println("done");
                 return true;
             }
         } catch (SQLException ex) {

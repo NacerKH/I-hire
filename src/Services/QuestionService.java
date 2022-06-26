@@ -134,7 +134,7 @@ public class QuestionService {
     public boolean Put(Question model) {
 
         try {
-            String req = "UPDATE `question` SET  description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?, idTest = ?"
+            String req = "UPDATE `question` SET  description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?"
                     + "WHERE Id = " + model.getId();
 
             PreparedStatement ps = Connection.prepareStatement(req);
@@ -147,7 +147,7 @@ public class QuestionService {
             ps.setString(6, model.getChoiceD());
             ps.setString(7, model.getRightAnswer());
             ps.setDate(8, new java.sql.Date(model.getUpdatedDate().getTime()));
-            ps.setInt(9, model.getIdTest());
+           // ps.setInt(9, model.getIdTest());
 
             ps.executeUpdate();
 
@@ -204,6 +204,7 @@ public class QuestionService {
     private Question InitQuestion(ResultSet result) {
         try {
             return new Question(
+                    result.getInt("id"),
                     result.getString("description"),
                     result.getString("choiceA"),
                     result.getString("choiceB"),

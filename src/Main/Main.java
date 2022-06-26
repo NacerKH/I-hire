@@ -5,6 +5,10 @@
  */
 package Main;
 
+import Models.JobOffer;
+import Services.JobOfferService;
+import java.util.ArrayList;
+
 /**
  *
  * @author Dhiaeddsn
@@ -12,6 +16,7 @@ package Main;
 public class Main {
     
     public static void main(String[] args){
-        
+
+ 
     }
 }
