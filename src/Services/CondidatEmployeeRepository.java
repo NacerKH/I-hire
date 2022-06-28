@@ -24,7 +24,7 @@ public class CondidatEmployeeRepository {
     Connection Connection;
 
     // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
-    private CondidatEmployeeRepository() {
+    public CondidatEmployeeRepository() {
         Connection = AppDbContext.GetInstance().GetDbConnection();
     }
     private static CondidatEmployeeRepository instance = new CondidatEmployeeRepository();

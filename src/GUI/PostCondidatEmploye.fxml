@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CondidatEmployeController">
+   <children>
+      <Label layoutX="60.0" layoutY="65.0" text="Offer" />
+      <Label layoutX="60.0" layoutY="143.0" text="Upload File" />
+      <ChoiceBox fx:id="OfferId" layoutX="231.0" layoutY="60.0" prefWidth="150.0" />
+      <Button fx:id="Cv_url" layoutX="255.0" layoutY="138.0" mnemonicParsing="false" onAction="#Dowload" text="Upload File" />
+      <Button fx:id="btn_Post" layoutX="275.0" layoutY="307.0" mnemonicParsing="false" onAction="#PostCondidatEmp" text="Post" />
+   </children>
+</AnchorPane>

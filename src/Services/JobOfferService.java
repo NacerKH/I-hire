@@ -26,7 +26,7 @@ public class JobOfferService {
     Connection Connection;  
     
     // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
-    private JobOfferService() 
+    public JobOfferService() 
     {
         Connection = AppDbContext.GetInstance().GetDbConnection(); 
     }
@@ -168,7 +168,7 @@ public class JobOfferService {
     {
         try
         {
-             
+              CategoryService cs = CategoryService.GetInstance();
             return new JobOffer(
                 result.getInt("Id"),
                 result.getString("jobDescription"),
@@ -177,7 +177,7 @@ public class JobOfferService {
                 result.getString("Status"),
                 result.getDate("CreatedDate"),
                 result.getDate("UpdatedDate"),
-                (Category)result.getObject("category") 
+                cs.getCategoryByID(result.getInt("category"))
             ); 
         }
         catch(SQLException ex)
