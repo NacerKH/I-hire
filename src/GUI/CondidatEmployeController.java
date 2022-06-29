@@ -88,21 +88,9 @@ public String id;
 
     private void loadData() {
         list.removeAll(list);
-       JobOfferService.GetInstance().GetAll();
-        
-         
-JobOfferService.GetInstance().GetAll().
+        JobOfferService.GetInstance().GetAll().
         forEach(u->  list.add( u.getJobDescription()));   
-       
-
-
-
-
-  
-  
-        
-       
-        OfferId.getItems().addAll(list);
+            OfferId.getItems().addAll(list);
     }
 
     @FXML

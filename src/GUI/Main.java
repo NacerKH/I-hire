@@ -32,7 +32,7 @@ public class Main extends Application {
                     .getResource("PostCondidatEmploye.fxml"));
 
             Scene scene = new Scene(root);
-
+            scene.getStylesheets().add(getClass().getResource("condidatemployee.css").toExternalForm());
             primaryStage.setTitle("Ehire");
             primaryStage.setScene(scene);
             primaryStage.show();

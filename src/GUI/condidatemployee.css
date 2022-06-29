@@ -3,8 +3,21 @@
  */
 
 .mainFxmlClass {
+@font-face {
+    font-family: 'Fleftex';
+    src: url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+}
 
+.label {
+    -fx-font-family: 'Fleftex';
+    -fx-font-size: 20;
+}
+
+.button .text {
+    -fx-font-family: 'Fleftex';
+}
 }
 .btn{
     float: left
 }
+
