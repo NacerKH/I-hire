@@ -24,13 +24,13 @@ public class Question {
     private Date updatedDate;
     private Test test;
     private int idTest;
+    private float score;
 
     public Question() {
     }
 
-    public Question(int id, int ouestionOrder, float ouestionDuration, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, Test test, int idTest) {
+    public Question(int id, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, Test test, int idTest, float score) {
         this.id = id;
-
         this.description = description;
         this.ChoiceA = ChoiceA;
         this.ChoiceB = ChoiceB;
@@ -41,37 +41,10 @@ public class Question {
         this.updatedDate = updatedDate;
         this.test = test;
         this.idTest = idTest;
+        this.score = score;
     }
 
-    public Question(int id, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, int idTest) {
-        this.id = id;
-
-        this.description = description;
-        this.ChoiceA = ChoiceA;
-        this.ChoiceB = ChoiceB;
-        this.createdDate = createdDate;
-        this.choiceC = choiceC;
-        this.choiceD = choiceD;
-        this.rightAnswer = rightAnswer;
-        this.updatedDate = updatedDate;
-        this.idTest = idTest;
-    }
-
-    public Question(String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, int idTest) {
-
-        this.description = description;
-        this.ChoiceA = ChoiceA;
-        this.ChoiceB = ChoiceB;
-        this.createdDate = createdDate;
-        this.choiceC = choiceC;
-        this.choiceD = choiceD;
-        this.rightAnswer = rightAnswer;
-        this.updatedDate = updatedDate;
-        this.idTest = idTest;
-    }
-
-    public Question(String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate) {
-
+    public Question(String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, Test test, int idTest, float score) {
         this.description = description;
         this.ChoiceA = ChoiceA;
         this.ChoiceB = ChoiceB;
@@ -81,8 +54,24 @@ public class Question {
         this.rightAnswer = rightAnswer;
         this.updatedDate = updatedDate;
         this.test = test;
+        this.idTest = idTest;
+        this.score = score;
     }
 
+    public Question(int id, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, int idTest, float score) {
+        this.id = id;
+        this.description = description;
+        this.ChoiceA = ChoiceA;
+        this.ChoiceB = ChoiceB;
+        this.createdDate = createdDate;
+        this.choiceC = choiceC;
+        this.choiceD = choiceD;
+        this.rightAnswer = rightAnswer;
+        this.updatedDate = updatedDate;
+        this.idTest = idTest;
+        this.score = score;
+    }
+    
     public int getId() {
         return id;
     }
@@ -169,6 +158,14 @@ public class Question {
 
     public void setIdTest(int idTest) {
         this.idTest = idTest;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
     }
 
     @Override

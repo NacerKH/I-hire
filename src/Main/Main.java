@@ -8,6 +8,12 @@ package Main;
 import Models.JobOffer;
 import Services.JobOfferService;
 import java.util.ArrayList;
+import com.google.auth.oauth2.GoogleCredentials;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
+import com.google.auth.http.HttpCredentialsAdapter;
 
 /**
  *
@@ -16,7 +22,16 @@ import java.util.ArrayList;
 public class Main {
     
     public static void main(String[] args){
+      
+   MailService.send(
+    "ehire04@gmail.com",
+    "ehire12345678",
+    "ehire04@gmail.com",
+    "Bienvenu sur WayToLearnX",
+    "mail de test!"
+  );
+ }
 
- 
-    }
+    
+       
 }

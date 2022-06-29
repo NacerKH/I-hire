@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.SVGPath?>
@@ -39,7 +40,7 @@
                   </CheckBox>
                   <TextArea fx:id="fxChoixC" layoutX="339.0" layoutY="304.0" prefHeight="45.0" prefWidth="483.0" promptText="choix C" />
                   <TextArea fx:id="fxChoixA" layoutX="339.0" layoutY="161.0" prefHeight="45.0" prefWidth="483.0" promptText="choix A" />
-                  <TextArea fx:id="fxDescription" layoutX="126.0" layoutY="86.0" prefHeight="45.0" prefWidth="696.0" promptText="Question" />
+                  <TextArea fx:id="fxDescription" layoutX="126.0" layoutY="86.0" prefHeight="45.0" prefWidth="505.0" promptText="Question" />
                   <TextArea fx:id="fxChoixD" layoutX="339.0" layoutY="372.0" prefHeight="45.0" prefWidth="483.0" promptText="Choix D" />
                   <TextArea fx:id="fxChoixB" layoutX="339.0" layoutY="235.0" prefHeight="45.0" prefWidth="483.0" promptText="Choix B" />
                   <CheckBox fx:id="fxrRepD" layoutX="128.0" layoutY="384.0" mnemonicParsing="false" text="Réponse est valide" textFill="#21848b">
@@ -68,6 +69,8 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Text>
+                  <TextField fx:id="score" layoutX="638.0" layoutY="86.0" prefHeight="45.0" prefWidth="175.0" promptText="Score" />
+                  <Text fx:id="fxErrorScore" fill="#fd0c0c" layoutX="638.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.99999999999977" />
                </children>
             </Pane>
          </children>

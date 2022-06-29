@@ -38,6 +38,8 @@ import javafx.stage.Stage;
 import Validation.AlertInterface;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -82,6 +84,11 @@ public class QuestionInterfaceController implements Initializable {
     private Button aDDTest;
     @FXML
     private Button aDDQuestion;
+    @FXML
+    private Text fxErrorScore;
+    @FXML
+    private TextField score;
+
 
     public void setFxQuestNum(String fxQuestNum) {
         this.fxQuestNum.setText(fxQuestNum);
@@ -185,6 +192,7 @@ public class QuestionInterfaceController implements Initializable {
 
     public boolean validateQuestion() {
         fxErrorDescription.setText(TestQuestionValidation.ifInputStringEmptyDO("Question", fxDescription.getText()));
+        fxErrorScore.setText(TestQuestionValidation.validateStringOfFloat("Score",score.getText()));
         fxErrorChoixA.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix A", fxChoixA.getText()));
         fxErrorChoixB.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix B", fxChoixB.getText()));
         fxErrorChoixC.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix C", fxChoixC.getText()));
@@ -199,6 +207,7 @@ public class QuestionInterfaceController implements Initializable {
             question.setChoiceB(fxChoixC.getText());
             question.setChoiceC(fxChoixC.getText());
             question.setChoiceD(fxChoixD.getText());
+            question.setScore( Float.valueOf(score.getText()));
             question.setCreatedDate(new Date());
             question.setUpdatedDate(new Date());
             question.setRightAnswer("");

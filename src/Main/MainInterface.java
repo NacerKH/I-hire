@@ -16,7 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.stage.Stage;            
+
 
 /**
  *
@@ -28,7 +29,6 @@ public class MainInterface extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            
             Parent root =FXMLLoader.load(getClass().getResource("../GUI/ListOffreInterface.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("E Hire");
@@ -43,8 +43,7 @@ public class MainInterface extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch
-        
+        launch      
         (args);
     }
     

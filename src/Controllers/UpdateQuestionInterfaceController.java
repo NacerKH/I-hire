@@ -30,6 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -82,6 +83,10 @@ public class UpdateQuestionInterfaceController implements Initializable {
     private Text fxCreatedDate;
     @FXML
     private Text fxUpdatedDate;
+    @FXML
+    private TextField score;
+    @FXML
+    private Text fxErrorScore;
 
 
     /**
@@ -102,6 +107,7 @@ public class UpdateQuestionInterfaceController implements Initializable {
         fxChoixC.setText(question.getChoiceC());
         fxCreatedDate.setText(question.getCreatedDate().toString());
         fxUpdatedDate.setText(question.getUpdatedDate().toString());
+        score.setText(question.getScore()+"");
         if(question.getRightAnswer().contains("A"))
             fxrRepA.setSelected(true);
 
@@ -151,6 +157,7 @@ public class UpdateQuestionInterfaceController implements Initializable {
 
     public boolean validateQuestion() {
         fxErrorDescription.setText(TestQuestionValidation.ifInputStringEmptyDO("Question", fxDescription.getText()));
+        fxErrorScore.setText(TestQuestionValidation.validateStringOfFloat("Score",score.getText()));
         fxErrorChoixA.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix A", fxChoixA.getText()));
         fxErrorChoixB.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix B", fxChoixB.getText()));
         fxErrorChoixC.setText(TestQuestionValidation.ifInputStringEmptyDO("Choix C", fxChoixC.getText()));
@@ -164,6 +171,7 @@ public class UpdateQuestionInterfaceController implements Initializable {
             question.setChoiceB(fxChoixC.getText());
             question.setChoiceC(fxChoixC.getText());
             question.setChoiceD(fxChoixD.getText());    
+            question.setScore( Float.valueOf(score.getText()));
             question.setCreatedDate(question.getCreatedDate());
             question.setUpdatedDate(new Date());
             question.setRightAnswer("");

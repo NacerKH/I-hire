@@ -105,8 +105,8 @@ public class QuestionService {
     // <editor-fold defaultstate="collapsed" desc="Post">
     public boolean Post(Question model) {
         try {
-            String req = "INSERT INTO `question`( `description`, `ChoiceA`, `ChoiceB`, `createdDate`, `choiceC`, `ChoiceD`, `rightAnswer`, `updatedDate`,`idTest`)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `question`( `description`, `ChoiceA`, `ChoiceB`, `createdDate`, `choiceC`, `ChoiceD`, `rightAnswer`, `updatedDate`,`idTest`,`score`)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req);
             ps.setString(1, model.getDescription());
             ps.setString(2, model.getChoiceA());
@@ -117,6 +117,7 @@ public class QuestionService {
             ps.setString(7, model.getRightAnswer());
             ps.setDate(8, new java.sql.Date(model.getUpdatedDate().getTime()));
             ps.setInt(9, model.getIdTest());
+            ps.setFloat(10, model.getScore());
 
             ps.executeUpdate();
 
@@ -134,7 +135,7 @@ public class QuestionService {
     public boolean Put(Question model) {
 
         try {
-            String req = "UPDATE `question` SET  description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?"
+            String req = "UPDATE `question` SET  description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?, score = ?"
                     + "WHERE Id = " + model.getId();
 
             PreparedStatement ps = Connection.prepareStatement(req);
@@ -147,6 +148,7 @@ public class QuestionService {
             ps.setString(6, model.getChoiceD());
             ps.setString(7, model.getRightAnswer());
             ps.setDate(8, new java.sql.Date(model.getUpdatedDate().getTime()));
+           ps.setFloat(9, model.getScore());
            // ps.setInt(9, model.getIdTest());
 
             ps.executeUpdate();
@@ -213,7 +215,8 @@ public class QuestionService {
                     result.getString("choiceD"),
                     result.getString("rightAnswer"),
                     result.getDate("updatedDate"),
-                    result.getInt("idTest"));
+                    result.getInt("idTest"),
+                    result.getFloat("score"));
 
         } catch (SQLException ex) {
             System.err.println("[Exception] " + ex.getMessage());
