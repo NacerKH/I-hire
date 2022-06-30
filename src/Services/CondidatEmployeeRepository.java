@@ -90,8 +90,8 @@ public class CondidatEmployeeRepository {
                     + " VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req);
 
-            ps.setInt(1, model.getOffer_id());
-            ps.setInt(2, model.getUser_id());
+            ps.setInt(1, model.getOffer_id().getId());
+            ps.setInt(2, model.getUser_id().getId());
             ps.setString(3, model.getCv_url());
             ps.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
             ps.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
@@ -117,8 +117,8 @@ public class CondidatEmployeeRepository {
 
             PreparedStatement ps = Connection.prepareStatement(req);
            
-            ps.setInt(1, model.getOffer_id());
-            ps.setInt(2, model.getUser_id());
+            ps.setInt(1, model.getOffer_id().getId());
+            ps.setInt(2, model.getUser_id().getId());
             ps.setString(3, model.getCv_url());
             ps.setTimestamp(4, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
             ps.setTimestamp(5, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
@@ -167,10 +167,11 @@ public class CondidatEmployeeRepository {
         try {
           
             Status type = Status.valueOf(result.getString("status"));
-
+           JobOfferService jb= JobOfferService.GetInstance();
+           UserServices userSer =UserServices.GetInstance();
             return new CondidatEmployee(
-                    result.getInt("offer_id"),
-                    result.getInt("user_id"),
+                   jb.GetById(result.getInt("offer_id")) ,
+                   userSer.GetById(result.getInt("user_id")) ,
                     result.getString("cv_url"),
                     type,
                     result.getInt("Id"),

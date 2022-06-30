@@ -91,6 +91,7 @@ public String id;
         JobOfferService.GetInstance().GetAll().
         forEach(u->  list.add( u.getJobDescription()));   
             OfferId.getItems().addAll(list);
+            OfferId.getOnKeyPressed();
     }
 
     @FXML
@@ -119,7 +120,7 @@ public String id;
 
     @FXML
     private void PostCondidatEmp(ActionEvent event) {
-        System.out.println();
+        System.out.println( Cv_url);
 
         CondidatEmployee condidatEmployee = new CondidatEmployee();
 
