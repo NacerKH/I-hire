@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListOffreInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListCandidatOffreController">
    <stylesheets>
       <URL value="@listquestionsinterface.css" />
    </stylesheets>
@@ -22,18 +22,18 @@
                   <Pane prefHeight="63.0" prefWidth="20000.0" style="-fx-background-color: #21848B;" />
                   <Pane layoutX="5.0" layoutY="70.0" prefHeight="550.0" prefWidth="949.0">
                      <children>
-                        <Text fx:id="titre" layoutX="50.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ensemble des offres" textAlignment="CENTER" wrappingWidth="809.3332824707031">
+                        <Text fx:id="titre" layoutX="50.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ensemble des Candidature" textAlignment="CENTER" wrappingWidth="809.3332824707031">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="table" layoutX="45.0" layoutY="160.0" prefHeight="287.0" prefWidth="860.0" style="-fx-border-color: #21848B;">
+                        <TableView fx:id="table" layoutX="175.0" layoutY="160.0" prefHeight="287.0" prefWidth="558.0" style="-fx-border-color: #21848B;">
                            <columns>
-                              <TableColumn fx:id="idOffre" prefWidth="85.3333740234375" text="# ID" />
-                              <TableColumn fx:id="CreatedDate" prefWidth="122.6666259765625" text="Date de création" />
-                              <TableColumn fx:id="UpdatedDate" minWidth="0.0" prefWidth="128.66668701171875" text="Date de mise à jour" />
-                              <TableColumn fx:id="totalPlaces" minWidth="0.0" prefWidth="120.0" text="Nombre de place" />
-                              <TableColumn fx:id="actions" minWidth="0.0" prefWidth="396.6666259765625" text="Actions" />
+                              <TableColumn fx:id="idCandidat" prefWidth="85.3333740234375" text="# ID" />
+                              <TableColumn fx:id="postuDate" prefWidth="122.6666259765625" text="Date de Postulation" />
+                              <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="128.66668701171875" text="Nom et prénom " />
+                              <TableColumn fx:id="status" minWidth="0.0" prefWidth="120.0" text="Status" />
+                              <TableColumn fx:id="actions" minWidth="0.0" prefWidth="94.66650390625" text="Actions" />
                            </columns>
                         </TableView>
                      </children>

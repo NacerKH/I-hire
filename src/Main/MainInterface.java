@@ -16,20 +16,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;            
-
+import javafx.stage.Stage;
 
 /**
  *
  * @author e.bentijani
  */
 public class MainInterface extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        
+
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("../GUI/ListOffreInterface.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/TestIdentificationInterface.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("E Hire");
             primaryStage.setScene(scene);
@@ -39,12 +38,13 @@ public class MainInterface extends Application {
         }
     }
 
-    /**s
+    /**
+     * s
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch      
-        (args);
+        launch(args);
     }
-    
+
 }

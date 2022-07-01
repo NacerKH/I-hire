@@ -95,11 +95,13 @@ public class ListOffreInterfaceController implements Initializable {
                     final Button btn1 = new Button("Modifier Test");
                     final Button btn2 = new Button("Effacer Test");
                     final Button btn3 = new Button("Ajouter Test");
+                    final Button btn4 = new Button("Gérer Candidatures");
 
                     {
                         btn2.setStyle("-fx-text-fill: #21848B");
                         btn3.setStyle("-fx-text-fill: #C70039");
                         btn1.setStyle("-fx-text-fill: #908D8E");
+                        btn4.setStyle("-fx-text-fill: #908D8E");
 
                         btn1.setOnAction((ActionEvent event) -> {
                             TableJobOffreDto tableJobOffreDto = getTableView().getItems().get(getIndex());
@@ -169,7 +171,28 @@ public class ListOffreInterfaceController implements Initializable {
                             }
 
                         });
-                        hbox.getChildren().addAll(btn1, btn2, btn3);
+                        
+                          btn4.setOnAction((ActionEvent event) -> {
+                            TableJobOffreDto tableJobOffreDto = getTableView().getItems().get(getIndex());
+
+                                FXMLLoader loader = new FXMLLoader(
+                                        getClass().getResource(
+                                                "../GUI/ListCandidatOffreInterface.fxml"
+                                        )
+                                );
+
+                                try {
+                                    Parent root = loader.load();
+                                    ListCandidatOffreController controller = loader.getController();
+                                    titre.getScene().setRoot(root);
+                                    controller.jsp(tableJobOffreDto.getIdOffre());
+                                } catch (IOException ex) {
+                                    Logger.getLogger(UpdateTestInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            
+
+                        });
+                        hbox.getChildren().addAll(btn1, btn2, btn3,btn4);
 
                         hbox.setSpacing(10);
                     }

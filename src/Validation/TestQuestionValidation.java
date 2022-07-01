@@ -25,7 +25,7 @@ public class TestQuestionValidation {
 
     public static String validateStringOfNumber(String nameInput, String ch) {
         if (ch.trim().isEmpty()) {
-            return ifInputStringEmptyDO("Nombre de question à selectionné", ch);
+            return ifInputStringEmptyDO(nameInput, ch);
         }
         if (!ch.matches("[0-9]+") || Integer.valueOf(ch) <= 0) {
             return nameInput + " invalide.";

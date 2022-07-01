@@ -7,6 +7,8 @@ package Enums;
 
 /**
  *
- * @author Kali 
+ * @author Kali
  */
-public enum Status {PANDING,OPEN,PRESELECTION,ACCEPTED,REJECT}
+public enum Status {
+    PANDING, PRESELECTION, PREACCEPTED, ACCEPTED, REJECT
+}

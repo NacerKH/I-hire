@@ -5,8 +5,11 @@
  */
 package Controllers;
 
+import Enums.Status;
+import Models.CandidatOffre;
 import Models.Question;
 import Models.Test;
+import Services.CandidatOffreService;
 import Services.TestService;
 import java.io.IOException;
 import java.net.URL;
@@ -59,18 +62,114 @@ public class CandidatTestController implements Initializable {
     @FXML
     private Button endTest;
     List<CheckBox> reps = new ArrayList<CheckBox>();
-
+    private CandidatOffre candidatOffre;
     VBox boxG;
     @FXML
     private Text duration;
+    CandidatOffreService candidatOffreRepo = CandidatOffreService.GetInstance();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        test = testRepo.GetById(46);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), (ActionEvent event) -> {
+
+
+    }
+
+    @FXML
+    private void globalPane(MouseEvent event
+    ) {
+    }
+
+    private void calResult() {
+        float result = 0;
+        float scoreTotale = 0;
+        int n = 0;
+        for (int i = 0; i < test.getQuestions().size(); i++) {
+            scoreTotale += test.getQuestions().get(i).getScore();
+            boolean valid = true;
+            String repch = "";
+
+            if (reps.get(n).getId().contains(i + "A") && reps.get(n).isSelected() == true) {
+                repch += "A";
+            }
+            if (reps.get(n + 1).getId().contains(i + "B") && reps.get(n + 1).isSelected() == true) {
+                repch += "B";
+            }
+            if (reps.get(n + 2).getId().contains(i + "C") && reps.get(n + 2).isSelected() == true) {
+                repch += "C";
+            }
+            if (reps.get(n + 3).getId().contains(i + "D") && reps.get(n + 3).isSelected() == true) {
+                repch += "D";
+            }
+
+            if (repch.length() != test.getQuestions().get(i).getRightAnswer().length()) {
+                valid = false;
+            } else {
+                for (int j = 0; j < repch.length(); j++) {
+                    if (!test.getQuestions().get(i).getRightAnswer().contains(repch.charAt(j) + "")) {
+                        valid = false;
+                    }
+                }
+            }
+            if (valid == true) {
+                result += test.getQuestions().get(i).getScore();
+            }
+            n += 4;
+        }
+        String mres = result + "/" + scoreTotale + " Points";
+        String acc="";
+        if((result) < (scoreTotale/2))
+            
+        {
+           candidatOffre.setStatus(Status.REJECT);
+           candidatOffreRepo.setStatus(candidatOffre);
+            acc="Désolé , vous n’avez pas eu la moyenne ! Essayer d’autres offres";
+        }
+       
+        else
+        { 
+           candidatOffre.setStatus(Status.ACCEPTED);
+           candidatOffreRepo.setStatus(candidatOffre);
+            acc="Félicitations ! Vous avez eu la moyenne.\nVous serez contacté le plutôt  possible pour un entretien.";}
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "../GUI/ResutInterface.fxml"
+                )
+        );
+        try {
+            
+            Parent root = loader.load();
+            ResutInterfaceController controller = loader.getController();
+            controller.setmScore(mres,acc);
+            fileTest.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void endTest(ActionEvent event
+    ) {
+        calResult()  ;
+    }
+    public void jsp(CandidatOffre candidatOffre) {
+
+
+        this.candidatOffre=candidatOffre;
+        test = testRepo.GetById(candidatOffre.getIdTest());
+        initData();
+    }
+    public void initData()
+    {
+        candidatOffre.setStatus(Status.REJECT);
+        candidatOffreRepo.setStatus(candidatOffre);
+        candidatOffre.setStatus(Status.REJECT);
+        candidatOffreRepo.setStatus(candidatOffre);
+                Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(test.getDuration()), (ActionEvent event) -> {
             calResult();
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -200,77 +299,4 @@ public class CandidatTestController implements Initializable {
         globalPane.setContent(boxG);
 
     }
-
-    @FXML
-    private void globalPane(MouseEvent event
-    ) {
-    }
-
-    private void calResult() {
-        float result = 0;
-        float scoreTotale = 0;
-        int n = 0;
-        for (int i = 0; i < test.getQuestions().size(); i++) {
-            scoreTotale += test.getQuestions().get(i).getScore();
-            boolean valid = true;
-            String repch = "";
-
-            if (reps.get(n).getId().contains(i + "A") && reps.get(n).isSelected() == true) {
-                repch += "A";
-            }
-            if (reps.get(n + 1).getId().contains(i + "B") && reps.get(n + 1).isSelected() == true) {
-                repch += "B";
-            }
-            if (reps.get(n + 2).getId().contains(i + "C") && reps.get(n + 2).isSelected() == true) {
-                repch += "C";
-            }
-            if (reps.get(n + 3).getId().contains(i + "D") && reps.get(n + 3).isSelected() == true) {
-                repch += "D";
-            }
-
-            if (repch.length() != test.getQuestions().get(i).getRightAnswer().length()) {
-                valid = false;
-            } else {
-                for (int j = 0; j < repch.length(); j++) {
-                    if (!test.getQuestions().get(i).getRightAnswer().contains(repch.charAt(j) + "")) {
-                        valid = false;
-                    }
-                }
-            }
-            if (valid == true) {
-                result += test.getQuestions().get(i).getScore();
-            }
-            n += 4;
-        }
-        String mres = result + "/" + scoreTotale + " Points";
-        String acc="";
-        if((result) < (scoreTotale/2))
-            
-        acc="Désolé , vous n’avez pas eu la moyenne ! Essayer d’autres offres";
-       
-        else
-           acc="Félicitations ! Vous avez eu la moyenne.\nVous serez contacté le plutôt  possible pour un entretien.";
-
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource(
-                        "../GUI/ResutInterface.fxml"
-                )
-        );
-        try {
-            Parent root = loader.load();
-            ResutInterfaceController controller = loader.getController();
-            controller.setmScore(mres,acc);
-            fileTest.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    @FXML
-    private void endTest(ActionEvent event
-    ) {
-        calResult()  ;
-    }
-
 }
