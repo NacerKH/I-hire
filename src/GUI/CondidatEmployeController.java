@@ -7,6 +7,7 @@ package GUI;
 
 import Models.CondidatEmployee;
 import Models.JobOffer;
+import Models.User;
 import Services.CondidatEmployeeRepository;
 import Services.JobOfferService;
 import java.awt.Desktop;
@@ -77,7 +78,8 @@ public class CondidatEmployeController implements Initializable {
     final FileChooser fileChooser = new FileChooser();
     final DirectoryChooser dirChooser = new DirectoryChooser();
     final Stage stage = new Stage();
-public String id;
+    public String id;
+    public String path;
     /**
      * Initializes the controller class.
      */
@@ -88,59 +90,60 @@ public String id;
 
     private void loadData() {
         list.removeAll(list);
+                        list.add( "choose Your Offer");
+
         JobOfferService.GetInstance().GetAll().
-        forEach(u->  list.add( u.getJobDescription()));   
+        forEach(u->  
+                list.add(u.getId(), u.getJobDescription())
+        );   
             OfferId.getItems().addAll(list);
-            OfferId.getOnKeyPressed();
+               OfferId.getSelectionModel().selectFirst();
+        
     }
 
     @FXML
-    public void Dowload(ActionEvent event) {
-        /**
-         * JFileChooser fc=new JFileChooser(); fc.showSaveDialog(fc); File f=
-         * fc.getSelectedFile();
-         *
-         * FileWriter fw= new FileWriter(f);
-         */
+    public void  Dowload(ActionEvent event) {
+     
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("src"));
         configureFileChooser(fileChooser);
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Pdf Files", "*.pdf"));
         File selectedFile = fileChooser.showOpenDialog(stage);
-        System.out.println(selectedFile.getName());
-        /**
-         * if (selectedFile != null) { openFile(selectedFile);
-              }*
-         */
+   //     System.out.println(selectedFile.getName()); 
 
-        File selectedDirectory = directoryChooser.showDialog(stage);
-        final File settingsFile = new File(selectedDirectory.getAbsolutePath());
+       if (selectedFile != null) { openFile(selectedFile);
+              }
+         
+
+        //File selectedDirectory = directoryChooser.showDialog(stage);
+      //  final File settingsFile = new File(selectedDirectory.getAbsolutePath());
+           //
     }
 
     @FXML
     private void PostCondidatEmp(ActionEvent event) {
-        System.out.println( Cv_url);
 
-        CondidatEmployee condidatEmployee = new CondidatEmployee();
+        /// we must get the userid login 
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); we must do this class authentifcation
+        
+       // User user = (User)authentication.getPrincipal();
+        //int userId = user.getId();
+
+        int EmployeOfferId =OfferId.getSelectionModel().selectedIndexProperty().getValue();
+        System.out.println(path);
+        //CondidatEmployee condidatEmployee = new CondidatEmployee(EmployeOfferId,userId);
 
     }
 
     private static void configureFileChooser(final FileChooser fileChooser) {
-        fileChooser.setTitle("View Pictures");
+        fileChooser.setTitle("View attachement");
         fileChooser.setInitialDirectory(
                 new File(System.getProperty("user.home"))
         );
     }
 
-    private void openFile(File file) {
-        try {
-            desktop.open(file);
-        } catch (IOException ex) {
-            Logger.getLogger(
-                    CondidatEmployeController.class.getName()).log(
-                    Level.ALL.SEVERE, null, ex
-            );
-        }
+    private String  openFile(File file) {
+      return   path =file.getName();
     }
 }

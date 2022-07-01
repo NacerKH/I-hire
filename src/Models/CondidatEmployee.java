@@ -13,22 +13,28 @@ import Enums.Status;
  */
 public class CondidatEmployee extends BaseEntity {
 
-    public int offer_id;
-    public int user_id;
+    public JobOffer offer_id;
+    public User user_id;
     public String cv_url;
     public  Status  status;
 
     public CondidatEmployee() {
     }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url, Status status) {
+    public CondidatEmployee(JobOffer offer_id,User user_id, String cv_url, Status status) {
         this.offer_id = offer_id;
         this.user_id = user_id;
         this.cv_url = cv_url;
         this.status = status;
     }
+       public CondidatEmployee(JobOffer offer_id,User user_id, String cv_url) {
+        this.offer_id = offer_id;
+        this.user_id = user_id;
+        this.cv_url = cv_url;
+       
+    }
 
-    public CondidatEmployee(int offer_id, int user_id, String cv_url,  Status status, int Id, Date CreatedDate, Date UpdatedDate) {
+    public CondidatEmployee(JobOffer offer_id, User user_id, String cv_url,  Status status, int Id, Date CreatedDate, Date UpdatedDate) {
         super(Id, CreatedDate, UpdatedDate);
         this.offer_id = offer_id;
         this.user_id = user_id;
@@ -36,21 +42,24 @@ public class CondidatEmployee extends BaseEntity {
         this.status = status;
     }
 
-    public int getOffer_id() {
+    public JobOffer getOffer_id() {
         return offer_id;
     }
 
-    public void setOffer_id(int offer_id) {
+    public void setOffer_id(JobOffer offer_id) {
         this.offer_id = offer_id;
     }
 
-    public int getUser_id() {
+    public User getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(User user_id) {
         this.user_id = user_id;
     }
+
+ 
+
 
     public String getCv_url() {
         return cv_url;
