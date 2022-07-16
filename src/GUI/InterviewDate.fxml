@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InterviewDateController">
+   <children>
+      <TableView fx:id="table" layoutX="14.0" layoutY="95.0" prefHeight="284.0" prefWidth="583.0" style="-fx-border-color: black;">
+        <columns>
+          <TableColumn fx:id="fullName" prefWidth="128.0" style="-fx-background-color: #11B3BC; -fx-border-color: black;" text="Nom et prenom" />
+          <TableColumn fx:id="phoneNumber" prefWidth="135.0" style="-fx-border-color: black;" text="Numéro de télephone" />
+            <TableColumn fx:id="email" prefWidth="119.0" style="-fx-background-color: #11B3BC; -fx-border-color: black;" text="E-mail" />
+            <TableColumn fx:id="cv_url" minWidth="0.0" prefWidth="87.0" style="-fx-border-color: black;" text="CV_URL" />
+            <TableColumn fx:id="gere" prefWidth="130.0" style="-fx-background-color: #11B3BC; -fx-border-color: black;" text="Gere Candidat" />
+            
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

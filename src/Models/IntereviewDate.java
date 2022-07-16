@@ -12,24 +12,77 @@ import java.util.Date;
  *
  * @author KHLIFI-MED
  */
-public class IntereviewDate extends BaseEntity {
+public class IntereviewDate {
 
-public Date intrvDate;
-
-public Candidat candidat;
+    int id;
+    Date intrvDate;
+    String intrvTime;
+    Date createdDate;
+    Date updatedDate;
+    ArrayList<Candidat> candidats = new ArrayList<>();
 
     public IntereviewDate() {
     }
 
-    public IntereviewDate(Date intrvDate, Candidat candidat) {
+    public IntereviewDate(Date intrvDate, Date createdDate, Date updatedDate, ArrayList<Candidat> candidat) {
         this.intrvDate = intrvDate;
-        this.candidat = candidat;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.candidats = candidats;
     }
 
-    public IntereviewDate(Date intrvDate, Candidat candidat, int Id, Date CreatedDate, Date UpdatedDate) {
-        super(Id, CreatedDate, UpdatedDate);
+    public IntereviewDate(Date intrvDate, int totalQuestions, int duration, Date createdDate, Date updatedDate) {
         this.intrvDate = intrvDate;
-        this.candidat = candidat;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    public IntereviewDate(int id, Date intrvDate, String intrvTime, Date createdDate, Date updatedDate) {
+        this.id = id;
+        this.intrvDate = intrvDate;
+        this.intrvTime = intrvTime;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    public IntereviewDate(int id, Date intrvDate, Date createdDate, Date updatedDate, ArrayList<Candidat> candidat) {
+        this.id = id;
+        this.intrvDate = intrvDate;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.candidats = candidat;
+    }
+
+    public IntereviewDate(int id, Date intrvDate, String intrvTime, Date createdDate, Date updatedDate, ArrayList<Candidat> candidats) {
+        this.id = id;
+        this.intrvDate = intrvDate;
+        this.intrvTime = intrvTime;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.candidats = candidats;
+    }
+
+    public IntereviewDate(Date intrvDate, String intrvTime, Date createdDate, Date updatedDate) {
+        this.intrvDate = intrvDate;
+        this.intrvTime = intrvTime;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    public String getIntrvTime() {
+        return intrvTime;
+    }
+
+    public void setIntrvTime(String intrvTime) {
+        this.intrvTime = intrvTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getIntrvDate() {
@@ -40,47 +93,33 @@ public Candidat candidat;
         this.intrvDate = intrvDate;
     }
 
-    public Candidat getCandidat() {
-        return candidat;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCandidat(Candidat candidat) {
-        this.candidat = candidat;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
-@Override
-    public int getId() {
-        return Id;
-    }
-@Override
-    public void setId(int Id) {
-        this.Id = Id;
-    }
-@Override
-    public Date getCreatedDate() {
-        return CreatedDate;
-    }
-@Override
-    public void setCreatedDate(Date CreatedDate) {
-        this.CreatedDate = CreatedDate;
-    }
-@Override
+
     public Date getUpdatedDate() {
-        return UpdatedDate;
+        return updatedDate;
     }
-@Override
-    public void setUpdatedDate(Date UpdatedDate) {
-        this.UpdatedDate = UpdatedDate;
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public ArrayList<Candidat> getCandidats() {
+        return candidats;
+    }
+
+    public void setCandidats(ArrayList<Candidat> candidats) {
+        this.candidats = candidats;
     }
 
     @Override
     public String toString() {
-        return "IntereviewDate{" + "intrvDate=" + intrvDate + ", candidat=" + candidat + ", CreatedDate=" + CreatedDate +", UpdatedDate=" + UpdatedDate +'}';
+        return "IntereviewDate{" + "id=" + id + ", intrvDate=" + intrvDate + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", candidat=" + candidats + '}';
     }
 
-   
-
-
-
-  
-    
 }

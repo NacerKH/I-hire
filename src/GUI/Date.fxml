@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #11B3BC;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DateController">
+   <children>
+      <DatePicker fx:id="date" layoutX="28.0" layoutY="115.0" />
+      <Label layoutX="365.0" layoutY="89.0" text="Affecter date de condidature">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="lbAffectedDate" layoutX="86.0" layoutY="200.0" prefHeight="54.0" prefWidth="456.0">
+         <font>
+            <Font name="Berlin Sans FB" size="30.0" />
+         </font></Label>
+      <Button layoutX="420.0" layoutY="115.0" mnemonicParsing="false" onAction="#affecter" text="Affecter" />
+      <ChoiceBox fx:id="heure" layoutX="250.0" layoutY="115.0" prefHeight="25.0" prefWidth="58.0" />
+      <Label layoutX="75.0" layoutY="85.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label layoutX="256.0" layoutY="85.0" text="Heure">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="108.0" layoutY="302.0" text="Supprimer ce candidat">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Button layoutX="365.0" layoutY="303.0" mnemonicParsing="false" onAction="#deleteCand" prefHeight="25.0" prefWidth="114.0" text="Supprimer" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="50.0" text="&lt;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

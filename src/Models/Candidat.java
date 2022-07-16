@@ -5,8 +5,6 @@
  */
 package Models;
 
-
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,16 +12,16 @@ import java.util.Date;
  * @author KHLIFI-MED
  */
 public class Candidat {
-    
-     int id;
-  String fullName;
-   String phoneNumber;
-   String email;
+
+    int id;
+    String fullName;
+    String phoneNumber;
+    String email;
     String cv_url;
     Date createdDate;
     Date updatedDate;
-   IntereviewDate intereviewDate;
-     int idIntereviewDate;
+    IntereviewDate intereviewDate;
+    int idIntereviewDate;
 
     public Candidat() {
     }
@@ -39,19 +37,34 @@ public class Candidat {
         this.intereviewDate = intereviewDate;
         this.idIntereviewDate = idIntereviewDate;
     }
-    
-    
-        public Candidat(int id, String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate) {
+
+    public Candidat(String fullName, String phoneNumber, String email, String cv_url) {
+
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.cv_url = cv_url;
+    }
+
+    public Candidat(int id, String fullName, String phoneNumber, String email, String cv_url) {
+        this.id = id;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.cv_url = cv_url;
+    }
+
+    public Candidat(int id, String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate) {
         this.id = id;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.cv_url = cv_url;
         this.createdDate = createdDate;
-        this.updatedDate = updatedDate;}
-    
+        this.updatedDate = updatedDate;
+    }
 
-    public Candidat(int id, String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate,int idIntereviewDate) {
+    public Candidat(int id, String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate, int idIntereviewDate) {
         this.id = id;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
@@ -61,20 +74,19 @@ public class Candidat {
         this.updatedDate = updatedDate;
         this.idIntereviewDate = idIntereviewDate;
     }
-    
-    
-     public Candidat( String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate) {
-        
+
+    public Candidat(String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate) {
+
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.cv_url = cv_url;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
-        
+
     }
 
-    public Candidat( String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate,int idIntereviewDate) {
+    public Candidat(String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate, int idIntereviewDate) {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -83,7 +95,7 @@ public class Candidat {
         this.updatedDate = updatedDate;
         this.idIntereviewDate = idIntereviewDate;
     }
-    
+
     public Candidat(String fullName, String phoneNumber, String email, String cv_url, Date createdDate, Date updatedDate, IntereviewDate intereviewDate) {
 
         this.fullName = fullName;
@@ -95,15 +107,9 @@ public class Candidat {
         this.intereviewDate = intereviewDate;
     }
 
- 
-
     public int getId() {
         return id;
     }
-
-   
-
-    
 
     public void setId(int id) {
         this.id = id;
@@ -172,8 +178,8 @@ public class Candidat {
     public void setIdIntereviewDate(int idIntereviewDate) {
         this.idIntereviewDate = idIntereviewDate;
     }
-       
+
     public String toString() {
-        return "Candidat{" + "id=" + id + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", email=" + email + ", cv_url=" + cv_url + ",createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", intereviewDate=" + intereviewDate + ", idIntereviewDate=" + idIntereviewDate+ '}';
+        return "Candidat{" + "id=" + id + ", fullName=" + fullName + ", phoneNumber=" + phoneNumber + ", email=" + email + ", cv_url=" + cv_url + ",createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", intereviewDate=" + intereviewDate + ", idIntereviewDate=" + idIntereviewDate + '}';
     }
 }
