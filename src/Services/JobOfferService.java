@@ -153,7 +153,43 @@ public class JobOfferService {
         
     }
     // </editor-fold>
-      
+     // get joboff
+         public ArrayList<String> GetJoboffersCat()
+    {
+        ArrayList<String> resultList = new ArrayList<String>(); 
+         
+        try
+        {
+            String req = "SELECT `jobDescription`, `AverageSallary`, `totalPlaces`, `Status`, `CreatedDate`, `UpdatedDate`, `name_cat` FROM `joboffer` JOIN `category` ON joboffer.category = category.id_cat"; 
+            PreparedStatement ps = Connection.prepareStatement(req);
+            ResultSet result = ps.executeQuery(); 
+                 
+            while (result.next()) {
+                
+                try
+                {
+                    resultList.add(result.getString(1));
+                    resultList.add(result.getString(2));
+                    resultList.add(result.getString(3));
+                    resultList.add(result.getString(4));
+                    resultList.add(result.getString(5));
+                    resultList.add(result.getString(6));
+                    resultList.add(result.getString(7));
+           
+                    
+                }
+                catch(Exception ex)
+                {
+                    System.err.println("[Exception] " + ex.getMessage());
+                }
+            }
+        }
+        catch (SQLException ex) {
+            System.err.println("[SQL Exception] " + ex.getMessage());
+        }
+        
+        return resultList; 
+    }
     // </editor-fold>
     
     //update

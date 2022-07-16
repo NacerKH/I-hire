@@ -39,7 +39,6 @@ public class JobOffersAddController implements Initializable {
     private TextField txt_status;
     @FXML
     private DatePicker val_CreDate;
-    @FXML
     private DatePicker val_UpDate;
     @FXML
     private ChoiceBox<String> Choice_Categories;
@@ -61,8 +60,9 @@ public class JobOffersAddController implements Initializable {
         if (!isEmpty())
         {      try {
             Date CreDate = Date.valueOf(val_CreDate.getValue().toString());
-            Date UpdDate = Date.valueOf(val_UpDate.getValue().toString());
-            JobOffer joboffer = new JobOffer(txt_JobDescription.getText(),Integer.parseInt(txt_Averagesalary.getText()),Integer.parseInt(txt_Totalplaces.getText()),txt_status.getText(), CreDate,UpdDate,CategoryService.GetInstance().getCategoryByName(Choice_Categories.getValue()));
+//            Date UpdDate = Date.valueOf(val_UpDate.getValue().toString());
+                  
+            JobOffer joboffer = new JobOffer(txt_JobDescription.getText(),Integer.parseInt(txt_Averagesalary.getText()),Integer.parseInt(txt_Totalplaces.getText()),txt_status.getText(), CreDate,CreDate,CategoryService.GetInstance().getCategoryByName(Choice_Categories.getValue()));
             
             JobOfferService.GetInstance().Post(joboffer);
              alertInformation.setTitle("Done!");
@@ -74,6 +74,10 @@ public class JobOffersAddController implements Initializable {
                 a.showAndWait();
                
             }
+             catch (NullPointerException ex) {
+                  Alert a = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
+                a.showAndWait();
+             }
             
             
          }
@@ -88,8 +92,7 @@ public class JobOffersAddController implements Initializable {
     
     public boolean isEmpty() {
 
-        if (!txt_JobDescription.getText().equals("") && !txt_Averagesalary.getText().equals("") && !txt_Totalplaces.getText().equals("") && !txt_status.getText().equals("") && val_CreDate.getValue() == null && val_UpDate.getValue() == null
-                && !Choice_Categories.getSelectionModel().isEmpty()) {
+        if (!txt_JobDescription.getText().equals("") && !txt_Averagesalary.getText().equals("") && !txt_Totalplaces.getText().equals("") && !txt_status.getText().equals("") && val_CreDate.getValue() ==null && !Choice_Categories.getSelectionModel().isEmpty()) {
             return true;
         } else {
             return false;

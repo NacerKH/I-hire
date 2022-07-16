@@ -66,6 +66,7 @@ public class CategoryService {
         
         return resultList; 
     }
+    // get category name
         public ArrayList<String> GetCategoryName()
     {
         ArrayList<String> resultList = new ArrayList<String>(); 
@@ -118,6 +119,7 @@ public class CategoryService {
         
         return c;
     }
+    // get category by name
         public Category getCategoryByName(String name){
         
         Category c = new Category();
@@ -178,13 +180,13 @@ public class CategoryService {
     // <editor-fold defaultstate="collapsed" desc="Delete">
     public void Delete(int id){
         try {
-            String Request4 =  "DELETE FROM category WHERE Id = ? ; ";
+            String Request4 =  "DELETE FROM category WHERE id_cat = ? ; ";
             PreparedStatement ps = Connection.prepareStatement(Request4);
             ps.setInt(1, id);
             ps.executeUpdate();
-            System.out.println("JobOffer supprimé");
+            System.out.println("Category Deleted");
         } catch (SQLException ex) {
-            Logger.getLogger(JobOfferService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategoryService.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

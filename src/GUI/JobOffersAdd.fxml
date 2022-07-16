@@ -15,7 +15,6 @@
       <TextField fx:id="txt_Totalplaces" layoutX="295.0" layoutY="176.0" prefHeight="26.0" prefWidth="188.0" promptText="Total places" />
       <TextField fx:id="txt_status" layoutX="512.0" layoutY="176.0" prefHeight="26.0" prefWidth="188.0" promptText="Status" />
       <DatePicker fx:id="val_CreDate" layoutX="294.0" layoutY="303.0" prefHeight="26.0" prefWidth="406.0" promptText="Created date" />
-      <DatePicker fx:id="val_UpDate" layoutX="294.0" layoutY="243.0" prefHeight="26.0" prefWidth="406.0" promptText="Updated date" />
       <ChoiceBox fx:id="Choice_Categories" layoutX="383.0" layoutY="369.0" prefHeight="26.0" prefWidth="317.0" />
       <Label layoutX="295.0" layoutY="369.0" prefHeight="26.0" prefWidth="90.0" text="Category :">
          <font>

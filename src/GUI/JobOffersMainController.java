@@ -96,5 +96,31 @@ public class JobOffersMainController implements Initializable {
             Logger.getLogger(JobOffersMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void BttnQrCode(ActionEvent event) {
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("..//GUI//JobOffersQr.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(JobOffersMainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void BttnCategories(ActionEvent event) {
+          try {
+            fxml = FXMLLoader.load(getClass().getResource("..//GUI//CategoriesManage.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(JobOffersMainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

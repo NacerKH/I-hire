@@ -111,7 +111,7 @@ public class JobOffer {
 
     @Override
     public String toString() {
-        return "JobOffer{" + "id=" + id + ", jobDescription=" + jobDescription + ", AverageSallary=" + AverageSallary + ", totalPlaces=" + totalPlaces + ", Status=" + Status + ", CreatedDate=" + CreatedDate + ", UpdatedDate=" + UpdatedDate + ", category=" + category + '}';
+        return "JobOffer{ jobDescription=" + jobDescription + ", AverageSallary=" + AverageSallary + ", totalPlaces=" + totalPlaces + ", Status=" + Status + ", CreatedDate=" + CreatedDate + ", UpdatedDate=" + UpdatedDate + ", category=" + category + '}';
     }
 
 

@@ -53,6 +53,22 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="367.0" onAction="#BttnQrCode" prefHeight="56.0" prefWidth="200.0" text="Qr code" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="BARCODE_SCAN" size="18" />
+               </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="423.0" onAction="#BttnCategories" prefHeight="56.0" prefWidth="200.0" text="Categories" textFill="WHITE">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="PENCIL_BOX" size="18" />
+               </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
       <AnchorPane fx:id="root" layoutX="200.0" layoutY="86.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="1000.0" />
       <BorderPane layoutX="200.0" prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: #2187ab;" AnchorPane.rightAnchor="0.0" />

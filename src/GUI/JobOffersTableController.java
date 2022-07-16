@@ -12,6 +12,7 @@ import Services.JobOfferService;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -86,6 +87,7 @@ public class JobOffersTableController implements Initializable {
         col_Crd.setCellValueFactory(new PropertyValueFactory<>("CreatedDate"));
         col_upd.setCellValueFactory(new PropertyValueFactory<>("UpdatedDate"));
         col_categ.setCellValueFactory(new PropertyValueFactory<>("category"));
+        
         joblist = FXCollections.observableArrayList(JobOfferService.GetInstance().GetAll());
         TableView.setItems(joblist);
     }

@@ -18,9 +18,9 @@ public class Main {
     public static void main(String[] args){
         
         
-        JobOfferService.GetInstance().GetAll();
+        JobOfferService.GetInstance().GetJoboffersCat();
         CategoryService.GetInstance().GetAll();
-        System.out.println(CategoryService.GetInstance().getCategoryByName("Developer"));
+        System.out.println(JobOfferService.GetInstance().GetJoboffersCat());
         
     }
 }
