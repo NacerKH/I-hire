@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Services;
+package services;
 
 import Models.Interview;
 import Utils.AppDbContext;
@@ -13,7 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,55 +22,45 @@ import java.util.logging.Logger;
  */
 public class InterviewService {
 
-    Connection Connection;  
-    
+    Connection Connection = AppDbContext.GetInstance().GetDbConnection();
+
     // <editor-fold defaultstate="collapsed" desc="Init Creation Instance -> Singleton">
-    private InterviewService() 
-    {
-        Connection = AppDbContext.GetInstance().GetDbConnection(); 
+    public InterviewService() {
     }
-    private static InterviewService instance = new InterviewService(); 
-    
-    public static InterviewService GetInstance() 
-    {
-        return instance; 
+    private static InterviewService instance = new InterviewService();
+
+    public static InterviewService GetInstance() {
+        return instance;
     }
     // </editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="Main Methods">
-    
     // <editor-fold defaultstate="collapsed" desc="GetAll">
-    public ArrayList<Interview> GetAll()
-    {
-        ArrayList<Interview> resultList = new ArrayList<Interview>(); 
-        try
-        {
-            String req = "SELECT * FROM interview"; 
+    public ArrayList<Interview> GetAll() {
+        ArrayList<Interview> resultList = new ArrayList<Interview>();
+        try {
+            String req = "SELECT * FROM interview";
             PreparedStatement ps = Connection.prepareStatement(req);
-            ResultSet result = ps.executeQuery(); 
-                 
+            ResultSet result = ps.executeQuery();
+
             while (result.next()) {
-                
-                try
-                {
-                    resultList.add(InitInterview(result)); 
-                }
-                catch(Exception ex)
-                {
+
+                try {
+                    resultList.add(InitInterview(result));
+                } catch (Exception ex) {
                     System.err.println("[Exception] " + ex.getMessage());
                 }
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println("[SQL Exception] " + ex.getMessage());
         }
-        
-        return resultList; 
+
+        return resultList;
     }
     // </editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="GetById">
-     public Interview GetById(int id) {
+    public Interview GetById(int id) {
         Interview i = new Interview();
         String req = "SELECT * FROM `interview` WHERE `id_interview`=?";
         try {
@@ -80,14 +69,11 @@ public class InterviewService {
             ResultSet result = ps.executeQuery();
             while (result.next()) {
 
-                try
-                {
-                    return InitInterview(result); 
-                }
-                catch(Exception ex)
-                {
-                    System.err.println("[Exception] " + ex.getMessage());
-                }
+               i.setId_interview(result.getInt("id_interview"));
+               i.setDate_interview( result.getDate("date_interview"));
+               i.setUpdate_interview(result.getDate("update_interview"));    
+               i.setType_interview( result.getString("type_interview"));
+               i.setStatut(  result.getString("statut"));
             }
 
         } catch (SQLException ex) {
@@ -96,12 +82,13 @@ public class InterviewService {
         return i;
     }
     // </editor-fold>
-    
+
     // <editor-fold defaultstate="collapsed" desc="Post">
-     public void Post(Interview i) {
+    public void Post(Interview i) {
         String req = "INSERT INTO `interview`(`date_interview`, `update_interview`, `type_interview`, `statut`) "
                 + "VALUES (?,?,?,?)";
         try {
+            System.out.println("Connection " + Connection);
             PreparedStatement ps = Connection.prepareStatement(req);
 
             ps.setDate(1, i.getDate_interview());
@@ -116,16 +103,16 @@ public class InterviewService {
         }
     }
     // </editor-fold>
-     
+
     // <editor-fold defaultstate="collapsed" desc="Put">
-   public void Put(Interview i) {
+    public void Put(Interview i) {
 
         try {
             String req = "UPDATE `interview` SET `date_interview`=?, `update_interview`=?,"
                     + "`type_interview`=?,`statut`=? WHERE id_interview=" + i.getId_interview();
             PreparedStatement ps = Connection.prepareStatement(req);
-            ps.setDate(1,(Date) i.getDate_interview());
-            ps.setDate(2,(Date) i.getUpdate_interview());
+            ps.setDate(1, (Date) i.getDate_interview());
+            ps.setDate(2, (Date) i.getUpdate_interview());
             ps.setString(3, i.getType_interview());
             ps.setString(4, i.getStatut());
             ps.executeUpdate();
@@ -137,10 +124,10 @@ public class InterviewService {
 
     }
     // </editor-fold>
-     
+
     // <editor-fold defaultstate="collapsed" desc="Delete">
-    public void Delete(int id){
-        String req="DELETE FROM `interview` WHERE id_interview= ?";
+    public void Delete(int id) {
+        String req = "DELETE FROM `interview` WHERE id_interview= ?";
         try {
             PreparedStatement ps = Connection.prepareStatement(req);
             ps.setInt(1, id);
@@ -151,33 +138,26 @@ public class InterviewService {
         }
     }
     // </editor-fold>
-     
+
     // </editor-fold>
-  
     // <editor-fold defaultstate="collapsed" desc="Other Methods">
-    
     // <editor-fold defaultstate="collapsed" desc="InitUser">
-    private Interview InitInterview(ResultSet result)
-    {
-        try
-        { 
+    private Interview InitInterview(ResultSet result) {
+        try {
             return new Interview(
-                result.getInt("id_interview"),
-                result.getDate("date_interview"),
-                result.getDate("update_interview"),
-                result.getString("type_interview"),
-                result.getString("statut")
-            ); 
-        }
-        catch(SQLException ex)
-        {
+                    result.getInt("id_interview"),
+                    result.getDate("date_interview"),
+                    result.getDate("update_interview"),
+                    result.getString("type_interview"),
+                    result.getString("statut")
+            );
+        } catch (SQLException ex) {
             System.err.println("[Exception] " + ex.getMessage());
         }
-       
-        return null; 
+
+        return null;
     }
     // </editor-fold>
-    
-    // </editor-fold>
 
+    // </editor-fold>
 }

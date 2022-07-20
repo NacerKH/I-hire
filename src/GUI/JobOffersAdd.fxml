@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.JobOffersAddController">
+   <children>
+      <TextField fx:id="txt_JobDescription" layoutX="295.0" layoutY="53.0" prefHeight="40.0" prefWidth="406.0" promptText="Job description" />
+      <TextField fx:id="txt_Averagesalary" layoutX="295.0" layoutY="119.0" prefHeight="26.0" prefWidth="406.0" promptText="Average salary" />
+      <TextField fx:id="txt_Totalplaces" layoutX="295.0" layoutY="176.0" prefHeight="26.0" prefWidth="188.0" promptText="Total places" />
+      <TextField fx:id="txt_status" layoutX="512.0" layoutY="176.0" prefHeight="26.0" prefWidth="188.0" promptText="Status" />
+      <DatePicker fx:id="val_CreDate" layoutX="294.0" layoutY="303.0" prefHeight="26.0" prefWidth="406.0" promptText="Created date" />
+      <ChoiceBox fx:id="Choice_Categories" layoutX="383.0" layoutY="369.0" prefHeight="26.0" prefWidth="317.0" />
+      <Label layoutX="295.0" layoutY="369.0" prefHeight="26.0" prefWidth="90.0" text="Category :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="606.0" layoutY="440.0" onMouseClicked="#Add_validate" style="-fx-background-color: #2187ab;" text="Add offer" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

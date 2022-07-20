@@ -96,12 +96,13 @@ public class IntereviewDateRepository {
                     int idq = generatedKeys.getInt(1);
                     System.out.println(idq);
                     
+                    /*
                     // ???
                     model.getCandidat().forEach(q -> {
                         q.setIdIntereviewDate(idq);
                         instancecandidatRepo.Post(q);
                     });
-                    
+                    */
                     
                 } else {
                     System.err.println("Creating test failed, no ID obtained.");

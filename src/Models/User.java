@@ -14,6 +14,10 @@ public class User extends BaseEntity
     
     // <editor-fold defaultstate="collapsed" desc="UserName">
     String UserName;  
+
+    public User(String text, String text0, UserType userType, String string, Date date, String text1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public String getUserName() {
         return UserName;
     }

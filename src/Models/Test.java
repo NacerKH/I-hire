@@ -6,6 +6,7 @@
 package Models;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,15 +16,21 @@ public class Test {
     int id ;
     String topic;
     int totalQuestions;
-    float duration;
+    int duration;
     Date createdDate;
     Date updatedDate;
     ArrayList<Question> questions; 
-
+    int idOffre;
     public Test() {
+   List <Question> questions = new ArrayList <Question>();
+
     }
 
-    public Test(String topic, int totalQuestions, float duration, Date createdDate, Date updatedDate, ArrayList<Question> question) {
+    public Test(int id) {
+        this.id = id;
+    }
+
+    public Test(String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate, ArrayList<Question> questions) {
         this.topic = topic;
         this.totalQuestions = totalQuestions;
         this.duration = duration;
@@ -32,7 +39,7 @@ public class Test {
         this.questions = questions;
     }
 
-    public Test(String topic, int totalQuestions, float duration, Date createdDate, Date updatedDate) {
+    public Test(String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate) {
         this.topic = topic;
         this.totalQuestions = totalQuestions;
         this.duration = duration;
@@ -40,7 +47,18 @@ public class Test {
         this.updatedDate = updatedDate;
     }
 
-    public Test(int id, String topic, int totalQuestions, float duration, Date createdDate, Date updatedDate) {
+    public Test(int id, String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate, ArrayList<Question> questions, int idOffre) {
+        this.id = id;
+        this.topic = topic;
+        this.totalQuestions = totalQuestions;
+        this.duration = duration;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.questions = questions;
+        this.idOffre = idOffre;
+    }
+
+    public Test(int id, String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate) {
         this.id = id;
         this.topic = topic;
         this.totalQuestions = totalQuestions;
@@ -50,7 +68,7 @@ public class Test {
     }
 
     
-    public Test(int id, String topic, int totalQuestions, float duration, Date createdDate, Date updatedDate, ArrayList<Question> question) {
+    public Test(int id, String topic, int totalQuestions, int duration, Date createdDate, Date updatedDate, ArrayList<Question> questions) {
         this.id = id;
         this.topic = topic;
         this.totalQuestions = totalQuestions;
@@ -73,6 +91,14 @@ public class Test {
         return topic;
     }
 
+    public int getIdOffre() {
+        return idOffre;
+    }
+
+    public void setIdOffre(int idOffre) {
+        this.idOffre = idOffre;
+    }
+
     public void setTopic(String topic) {
         this.topic = topic;
     }
@@ -85,11 +111,11 @@ public class Test {
         this.totalQuestions = totalQuestions;
     }
 
-    public float getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(float duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
@@ -113,14 +139,15 @@ public class Test {
         return questions;
     }
 
-    public void setQuestions(ArrayList<Question> question) {
-        this.questions = question;
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
     }
 
     @Override
     public String toString() {
-        return "Test{" + "id=" + id + ", topic=" + topic + ", totalQuestions=" + totalQuestions + ", duration=" + duration + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", question=" + questions + '}';
+        return "Test{" + "id=" + id + ", topic=" + topic + ", totalQuestions=" + totalQuestions + ", duration=" + duration + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", questions=" + questions + '}';
     }
+
 
     
 }

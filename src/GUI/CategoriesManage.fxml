@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CategoriesManageController">
+   <children>
+      <TableView fx:id="TableView" onMouseClicked="#Table_clikecked" prefHeight="382.0" prefWidth="1000.0">
+         <columns>
+            <TableColumn fx:id="col_CatName" prefWidth="124.80001831054688" text="Category Name" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txt_idCategory" layoutX="35.0" layoutY="395.0" prefHeight="26.0" prefWidth="30.0" />
+      <TextField fx:id="txt_CategoryName" layoutX="207.0" layoutY="396.0" />
+      <Button layoutX="425.0" layoutY="396.0" mnemonicParsing="false" onAction="#Bttn_Add" text="Add" />
+      <Button layoutX="481.0" layoutY="395.0" mnemonicParsing="false" onAction="#Bttn_Update" text="Update" />
+      <Button layoutX="551.0" layoutY="396.0" mnemonicParsing="false" onAction="#Bttn_Delete" text="Delete" />
+   </children>
+</AnchorPane>

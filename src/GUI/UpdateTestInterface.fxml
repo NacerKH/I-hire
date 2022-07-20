@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.2269385026737968" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UpdateTestInterfaceController">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="398.0" style="-fx-background-color: #21848B;" />
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="711.0">
+         <children>
+            <Pane prefHeight="63.0" prefWidth="20000.0" style="-fx-background-color: #21848B;" />
+            <Pane layoutX="5.0" layoutY="70.0" prefHeight="550.0" prefWidth="949.0">
+               <children>
+                  <TextField fx:id="fxTotalQuestions" layoutX="345.0" layoutY="187.0" prefHeight="53.0" prefWidth="472.0" promptText="Nombre de question à selectionné" />
+                  <ChoiceBox fx:id="fxDuration" accessibleRole="MENU_ITEM" accessibleText="Durée" cache="true" layoutX="161.0" layoutY="186.0" prefHeight="53.0" prefWidth="161.0" />
+                  <Button fx:id="fxSaveExamen" layoutX="142.0" layoutY="335.0" mnemonicParsing="false" onAction="#saveExamen" prefHeight="62.0" prefWidth="329.0" style="-fx-background-color: #21848B;" text="Sauvegarder les modifications" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCancel" layoutX="143.0" layoutY="422.0" mnemonicParsing="false" onAction="#cancel" prefHeight="62.0" prefWidth="690.0" style="-fx-background-color: #D1D3D4;" text="Annuler" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Text fx:id="fxErrorTopic" fill="#fd0c0c" layoutX="170.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="452.13668060302734" />
+                  <Text fx:id="fxErrorTotalQuestions" fill="#fd0c0c" layoutX="354.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="435.3164310455322" />
+                  <TextField fx:id="fxTopic" layoutX="161.0" layoutY="96.0" prefHeight="53.0" prefWidth="655.0" promptText="Titre" />
+                  <Text layoutX="387.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Test" wrappingWidth="202.0">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="fxagetQuestions" layoutX="504.0" layoutY="336.0" mnemonicParsing="false" onAction="#getQuestions" prefHeight="62.0" prefWidth="329.0" style="-fx-background-color: #A1A3A6;" text="Consulter les questions" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Button>
+                  <Text fill="#11b3bc" layoutX="165.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de création :" wrappingWidth="154.861328125" />
+                  <Text fill="#11b3bc" layoutX="165.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de dernière modification :" wrappingWidth="182.861328125" />
+                  <Text fx:id="fxCreatedDate" layoutX="362.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="373.47003173828125">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="fxUpdatedDate" layoutX="362.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="373.47003173828125">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

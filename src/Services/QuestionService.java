@@ -105,22 +105,19 @@ public class QuestionService {
     // <editor-fold defaultstate="collapsed" desc="Post">
     public boolean Post(Question model) {
         try {
-            String req = "INSERT INTO `question`(`questionOrder`, `title`, `questionDuration`, `description`, `ChoiceA`, `ChoiceB`, `createdDate`, `choiceC`, `ChoiceD`, `rightAnswer`, `updatedDate`,`idTest`)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `question`( `description`, `ChoiceA`, `ChoiceB`, `createdDate`, `choiceC`, `ChoiceD`, `rightAnswer`, `updatedDate`,`idTest`,`score`)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = Connection.prepareStatement(req);
-
-            ps.setInt(1, model.getOuestionOrder());
-            ps.setString(2, model.getTitle());
-            ps.setFloat(3, model.getOuestionDuration());
-            ps.setString(4, model.getDescription());
-            ps.setString(5, model.getChoiceA());
-            ps.setString(6, model.getChoiceB());
-            ps.setDate(7, new java.sql.Date(model.getCreatedDate().getTime()));
-            ps.setString(8, model.getChoiceC());
-            ps.setString(9, model.getChoiceD());
-            ps.setInt(10, model.getOuestionOrder());
-            ps.setDate(11, new java.sql.Date(model.getUpdatedDate().getTime()));
-            ps.setInt(12, model.getIdTest());
+            ps.setString(1, model.getDescription());
+            ps.setString(2, model.getChoiceA());
+            ps.setString(3, model.getChoiceB());
+            ps.setDate(4, new java.sql.Date(model.getCreatedDate().getTime()));
+            ps.setString(5, model.getChoiceC());
+            ps.setString(6, model.getChoiceD());
+            ps.setString(7, model.getRightAnswer());
+            ps.setDate(8, new java.sql.Date(model.getUpdatedDate().getTime()));
+            ps.setInt(9, model.getIdTest());
+            ps.setFloat(10, model.getScore());
 
             ps.executeUpdate();
 
@@ -138,23 +135,22 @@ public class QuestionService {
     public boolean Put(Question model) {
 
         try {
-            String req = "UPDATE `question` SET questionOrder = ?, title = ? , questionDuration = ?, description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?, idTest = ?"
+            String req = "UPDATE `question` SET  description = ?, ChoiceA = ?, ChoiceB = ?, createdDate = ?, choiceC = ?, ChoiceD = ?, rightAnswer = ?, updatedDate = ?, score = ?"
                     + "WHERE Id = " + model.getId();
 
             PreparedStatement ps = Connection.prepareStatement(req);
 
-            ps.setInt(1, model.getOuestionOrder());
-            ps.setString(2, model.getTitle());
-            ps.setFloat(3, model.getOuestionDuration());
-            ps.setString(4, model.getDescription());
-            ps.setString(5, model.getChoiceA());
-            ps.setString(6, model.getChoiceB());
-            ps.setDate(7, new java.sql.Date(model.getCreatedDate().getTime()));
-            ps.setString(8, model.getChoiceC());
-            ps.setString(9, model.getChoiceD());
-            ps.setInt(10, model.getOuestionOrder());
-            ps.setDate(11, new java.sql.Date(model.getUpdatedDate().getTime()));
-            ps.setInt(12, model.getIdTest());
+            ps.setString(1, model.getDescription());
+            ps.setString(2, model.getChoiceA());
+            ps.setString(3, model.getChoiceB());
+            ps.setDate(4, new java.sql.Date(model.getCreatedDate().getTime()));
+            ps.setString(5, model.getChoiceC());
+            ps.setString(6, model.getChoiceD());
+            ps.setString(7, model.getRightAnswer());
+            ps.setDate(8, new java.sql.Date(model.getUpdatedDate().getTime()));
+           ps.setFloat(9, model.getScore());
+           // ps.setInt(9, model.getIdTest());
+
             ps.executeUpdate();
 
             return true;
@@ -210,18 +206,17 @@ public class QuestionService {
     private Question InitQuestion(ResultSet result) {
         try {
             return new Question(
-                    result.getInt("questionOrder"),
-                    result.getString("title"),
-                    result.getFloat("questionDuration"),
+                    result.getInt("id"),
                     result.getString("description"),
                     result.getString("choiceA"),
                     result.getString("choiceB"),
                     result.getDate("createdDate"),
                     result.getString("choiceC"),
                     result.getString("choiceD"),
-                    result.getInt("questionOrder"),
+                    result.getString("rightAnswer"),
                     result.getDate("updatedDate"),
-                    result.getInt("idTest"));
+                    result.getInt("idTest"),
+                    result.getFloat("score"));
 
         } catch (SQLException ex) {
             System.err.println("[Exception] " + ex.getMessage());

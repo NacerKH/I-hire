@@ -1,0 +1,24 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    .button{
+    -fx-background-color: #f2f2f2;
+    }
+    .button:hover{
+     -fx-background-color: white;
+    }
+    .resetButton{
+        -fx-background-color:  #E71D36;
+        -fx-text-fill: white;
+        -fx-border-color:white;
+    }
+    
+    .resetButton:hover{
+         -fx-text-fill: black;
+         -fx-border-color:white;
+         -fx-background-color:  #f2f2f2;
+    }
+
+}

@@ -5,6 +5,10 @@
  */
 package Main;
 
+import Models.User;
+import Services.UserServices;
+import java.util.ArrayList;
+
 /**
  *
  * @author Dhiaeddsn
@@ -12,6 +16,12 @@ package Main;
 public class Main {
     
     public static void main(String[] args){
+        
+        UserServices.GetInstance().GetAll(); 
+        
+        ArrayList<User> users =  UserServices.GetInstance().GetAll(); 
+         
+        System.out.println("the total are: " + users.size());
         
     }
 }

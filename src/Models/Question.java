@@ -5,6 +5,7 @@
  */
 package Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -13,28 +14,23 @@ import java.util.Date;
  */
 public class Question {
     private int id;
-    private int ouestionOrder;
-    private String title;
-    private float ouestionDuration;
     private String description;
     private String ChoiceA;
     private String ChoiceB;
     private Date createdDate;
     private String choiceC;
     private String choiceD;
-    private int rightAnswer;
+    private String rightAnswer;
     private Date updatedDate;
     private Test test;
     private int idTest;
+    private float score;
 
     public Question() {
     }
 
-    public Question(int id, int ouestionOrder, String title, float ouestionDuration, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, int rightAnswer, Date updatedDate, Test test, int idTest) {
+    public Question(int id, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, Test test, int idTest, float score) {
         this.id = id;
-        this.ouestionOrder = ouestionOrder;
-        this.title = title;
-        this.ouestionDuration = ouestionDuration;
         this.description = description;
         this.ChoiceA = ChoiceA;
         this.ChoiceB = ChoiceB;
@@ -45,43 +41,10 @@ public class Question {
         this.updatedDate = updatedDate;
         this.test = test;
         this.idTest = idTest;
+        this.score = score;
     }
 
-    public Question(int id, int ouestionOrder, String title, float ouestionDuration, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, int rightAnswer, Date updatedDate, int idTest) {
-        this.id = id;
-        this.ouestionOrder = ouestionOrder;
-        this.title = title;
-        this.ouestionDuration = ouestionDuration;
-        this.description = description;
-        this.ChoiceA = ChoiceA;
-        this.ChoiceB = ChoiceB;
-        this.createdDate = createdDate;
-        this.choiceC = choiceC;
-        this.choiceD = choiceD;
-        this.rightAnswer = rightAnswer;
-        this.updatedDate = updatedDate;
-        this.idTest = idTest;
-    }
-
-    public Question(int ouestionOrder, String title, float ouestionDuration, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, int rightAnswer, Date updatedDate, int idTest) {
-        this.ouestionOrder = ouestionOrder;
-        this.title = title;
-        this.ouestionDuration = ouestionDuration;
-        this.description = description;
-        this.ChoiceA = ChoiceA;
-        this.ChoiceB = ChoiceB;
-        this.createdDate = createdDate;
-        this.choiceC = choiceC;
-        this.choiceD = choiceD;
-        this.rightAnswer = rightAnswer;
-        this.updatedDate = updatedDate;
-        this.idTest = idTest;
-    }
-
-    public Question(int ouestionOrder, String title, float ouestionDuration, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, int rightAnswer, Date updatedDate) {
-        this.ouestionOrder = ouestionOrder;
-        this.title = title;
-        this.ouestionDuration = ouestionDuration;
+    public Question(String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, Test test, int idTest, float score) {
         this.description = description;
         this.ChoiceA = ChoiceA;
         this.ChoiceB = ChoiceB;
@@ -91,38 +54,30 @@ public class Question {
         this.rightAnswer = rightAnswer;
         this.updatedDate = updatedDate;
         this.test = test;
+        this.idTest = idTest;
+        this.score = score;
     }
 
+    public Question(int id, String description, String ChoiceA, String ChoiceB, Date createdDate, String choiceC, String choiceD, String rightAnswer, Date updatedDate, int idTest, float score) {
+        this.id = id;
+        this.description = description;
+        this.ChoiceA = ChoiceA;
+        this.ChoiceB = ChoiceB;
+        this.createdDate = createdDate;
+        this.choiceC = choiceC;
+        this.choiceD = choiceD;
+        this.rightAnswer = rightAnswer;
+        this.updatedDate = updatedDate;
+        this.idTest = idTest;
+        this.score = score;
+    }
+    
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getOuestionOrder() {
-        return ouestionOrder;
-    }
-
-    public void setOuestionOrder(int ouestionOrder) {
-        this.ouestionOrder = ouestionOrder;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public float getOuestionDuration() {
-        return ouestionDuration;
-    }
-
-    public void setOuestionDuration(float ouestionDuration) {
-        this.ouestionDuration = ouestionDuration;
     }
 
     public String getDescription() {
@@ -173,11 +128,11 @@ public class Question {
         this.choiceD = choiceD;
     }
 
-    public int getRightAnswer() {
+    public String getRightAnswer() {
         return rightAnswer;
     }
 
-    public void setRightAnswer(int rightAnswer) {
+    public void setRightAnswer(String rightAnswer) {
         this.rightAnswer = rightAnswer;
     }
 
@@ -205,10 +160,24 @@ public class Question {
         this.idTest = idTest;
     }
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
-        return "Question{" + "id=" + id + ", ouestionOrder=" + ouestionOrder + ", title=" + title + ", ouestionDuration=" + ouestionDuration + ", description=" + description + ", ChoiceA=" + ChoiceA + ", ChoiceB=" + ChoiceB + ", createdDate=" + createdDate + ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", rightAnswer=" + rightAnswer + ", updatedDate=" + updatedDate + ", test=" + test + ", idTest=" + idTest + '}';
+        return "Question{" + "id=" + id + ", description=" + description + ", ChoiceA=" + ChoiceA + ", ChoiceB=" + ChoiceB + ", createdDate=" + createdDate + ", choiceC=" + choiceC + ", choiceD=" + choiceD + ", rightAnswer=" + rightAnswer + ", updatedDate=" + updatedDate + ", test=" + test + ", idTest=" + idTest + '}';
     }
+
+    public void setUpdatedDate(LocalDate date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 
     
 

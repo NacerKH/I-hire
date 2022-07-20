@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateUserPageController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.99997558593748" minHeight="10.0" prefHeight="11.866644287109352" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="113.26665039062499" minHeight="10.0" prefHeight="31.733270263671898" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="135.46672973632815" minHeight="10.0" prefHeight="135.46672973632815" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="200.0" right="200.0" top="70.0" />
+         </BorderPane.margin>
+         <children>
+            <TextField fx:id="userNameTextFieled" alignment="CENTER" promptText="User Name" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="300.0" right="300.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="passwordTextFieled" alignment="CENTER" layoutX="10.0" layoutY="98.0" promptText="Password" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="300.0" right="300.0" />
+               </GridPane.margin>
+            </TextField>
+            <DatePicker fx:id="birdthdayDatePicker" promptText="Birthday" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="jobTitleTextFieled" alignment="CENTER" layoutX="310.0" layoutY="128.0" promptText="Job TItle" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="300.0" right="300.0" />
+               </GridPane.margin>
+            </TextField>
+            <GridPane GridPane.rowIndex="7">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <GridPane.margin>
+                  <Insets left="350.0" right="350.0" />
+               </GridPane.margin>
+               <children>
+                  <Button fx:id="createButton" mnemonicParsing="false" onAction="#onCreateButtonClicked" style="-fx-background-color: #21848b;" text="Create" textFill="WHITE" GridPane.halignment="CENTER" />
+                  <Button fx:id="cancledButton" mnemonicParsing="false" onAction="#onCancelButtonClicked" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+            <Label fx:id="msgLabel" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <TextField fx:id="emailTextFieled" alignment="CENTER" layoutX="310.0" layoutY="126.0" promptText="Email" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="300.0" right="300.0" />
+               </GridPane.margin>
+            </TextField>
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Create User" textFill="#21848b" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#onGoBackButtonClicked" text="Go Back">
+               <GridPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </top>
+</BorderPane>

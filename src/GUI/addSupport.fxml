@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddSupportController">
+   <children>
+      <Label layoutX="74.0" layoutY="65.0" text="id interview" />
+      <Label layoutX="74.0" layoutY="128.0" text="description offre" />
+      <Label layoutX="93.0" layoutY="184.0" text="cv" />
+      <TextField fx:id="descri" layoutX="184.0" layoutY="124.0" />
+      <TextField fx:id="cv" layoutX="172.0" layoutY="180.0" />
+      <Button fx:id="add" layoutX="221.0" layoutY="262.0" mnemonicParsing="false" onAction="#addSupport" text="add" />
+      <TextField fx:id="idInterview" layoutX="172.0" layoutY="61.0" />
+   </children>
+</AnchorPane>

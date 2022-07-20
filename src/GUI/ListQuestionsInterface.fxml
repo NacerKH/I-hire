@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListQuestionsInterfaceController">
+    <stylesheets>
+        <URL value="@listquestionsinterface.css" />
+    </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.2269385026737968" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1250.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="398.0" style="-fx-background-color: #21848B;" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="711.0">
+               <children>
+                  <Pane prefHeight="63.0" prefWidth="20000.0" style="-fx-background-color: #21848B;" />
+                  <Pane layoutX="5.0" layoutY="70.0" prefHeight="550.0" prefWidth="949.0">
+                     <children>
+                        <Button fx:id="aDDQuestion" layoutX="730.0" layoutY="132.0" mnemonicParsing="false" onAction="#aDDQuestion" prefHeight="56.0" prefWidth="59.0" style="-fx-background-color: none;" textFill="#757979">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                           <graphic>
+                              <Pane prefHeight="45.0" prefWidth="42.0">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21848b" height="9.0" layoutX="5.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#11b3bc" height="29.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
+                                 </children>
+                              </Pane>
+                           </graphic>
+                        </Button>
+                        <Text fx:id="titre" layoutX="50.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="809.3332824707031">
+                           <font>
+                              <Font name="Arial" size="26.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="table" layoutX="81.0" layoutY="188.0" prefHeight="287.0" prefWidth="730.0" style="-fx-border-color: #21848B;">
+                          <columns>
+                            <TableColumn fx:id="idQuestion" prefWidth="85.3333740234375" text="# ID" />
+                              <TableColumn fx:id="question" prefWidth="502.6666259765625" text="Question" />
+                              <TableColumn fx:id="actions" minWidth="0.0" prefWidth="136.0" text="Actions" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

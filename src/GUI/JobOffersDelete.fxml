@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.JobOffersDeleteController">
+   <children>
+      <TableView fx:id="TableView" layoutY="27.0" onMouseClicked="#Table_clikecked" prefHeight="382.0" prefWidth="1000.0" AnchorPane.rightAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="col_JobD" prefWidth="124.80001831054688" text="JobDescription" />
+            <TableColumn fx:id="col_avgs" minWidth="5.600006103515625" prefWidth="118.39999389648438" text="AverageSalary" />
+            <TableColumn fx:id="col_totalp" minWidth="0.0" prefWidth="110.39996337890625" text="TotalPlaces" />
+            <TableColumn fx:id="col_Crd" prefWidth="118.4000244140625" text="CreatedDate" />
+            <TableColumn fx:id="col_upd" prefWidth="129.60003662109375" text="UpdatedDate" />
+            <TableColumn fx:id="col_Status" prefWidth="84.800048828125" text="Status" />
+            <TableColumn fx:id="col_categ" prefWidth="309.60003662109375" text="Category" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="412.0" layoutY="493.0" onMouseClicked="#Delete_validate" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #2187ab;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="DELETE" size="18" />
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txt_idJoboffer" layoutX="374.0" layoutY="500.0" prefHeight="26.0" prefWidth="30.0" />
+   </children>
+</AnchorPane>

@@ -10,47 +10,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="725.0" prefWidth="1042.0" style="-fx-background-color: #72C7D1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CondidatEmployeController">
+<AnchorPane id="AnchorPane" prefHeight="725.0" prefWidth="1042.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PostCondidatEmploye">
    <children>
-      <Label graphicTextGap="9.0" layoutX="351.0" layoutY="14.0" style="-fx-background-color: #11B3B;" text="Employee Condidature" textFill="#21848b">
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="9.0" layoutX="367.0" layoutY="25.0" style="-fx-background-color: #11B3B;" text="Employee Condidature" textFill="#21848b">
          <font>
-            <Font name="Arial" size="29.0" />
+            <Font name="Arial" size="30.0" />
          </font>
          <effect>
             <Glow />
          </effect>
       </Label>
-      <Label layoutX="60.0" layoutY="91.0" style="-fx-background-color: #11B3B;" text="Offer">
+      <Label layoutX="63.0" layoutY="231.0" style="-fx-background-color: #11B3B;" text="Offer">
          <font>
             <Font name="Arial" size="28.0" />
          </font>
          <effect>
             <Glow />
          </effect></Label>
-      <Label layoutX="49.0" layoutY="285.0" text="Upload File">
+      <Label layoutX="63.0" layoutY="464.0" text="Upload File">
          <font>
             <Font name="Arial" size="28.0" />
          </font>
          <effect>
             <Glow />
          </effect></Label>
-      <ChoiceBox fx:id="OfferId" layoutX="316.0" layoutY="76.0" maxHeight="1.7976931348623157E308" prefHeight="60.0" prefWidth="411.0" style="-fx-background-color: #21848B;" AnchorPane.rightAnchor="315.0">
+      <ChoiceBox fx:id="OfferId" layoutX="360.0" layoutY="221.0" maxHeight="1.7976931348623157E308" prefHeight="20.0" prefWidth="327.0" style="-fx-background-color: #21848B;" AnchorPane.rightAnchor="354.79999999999995">
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding></ChoiceBox>
-      <Button fx:id="Cv_url" defaultButton="true" layoutX="459.0" layoutY="274.0" mnemonicParsing="false" onAction="#Dowload" text="Upload File">
+      <Button fx:id="Cv_url" defaultButton="true" layoutX="457.0" layoutY="454.0" mnemonicParsing="false" onAction="#Dowload" style="-fx-background-color: #21848B;" text="Upload File" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
          <effect>
             <Blend mode="SOFT_LIGHT" />
          </effect></Button>
-      <Button fx:id="btn_Post" layoutX="832.0" layoutY="513.0" mnemonicParsing="false" onAction="#PostCondidatEmp" prefHeight="45.0" prefWidth="161.0" style="-fx-background-color: #A1A3A6;" text="Post">
+      <Button fx:id="btn_Post" layoutX="838.0" layoutY="626.0" mnemonicParsing="false" onAction="#PostCondidatEmp" prefHeight="45.0" prefWidth="161.0" style="-fx-background-color: #21848B;" text="Post" textFill="WHITE">
          <font>
             <Font size="21.0" />
          </font>
          <effect>
             <InnerShadow />
          </effect></Button>
+      <Button fx:id="goBackButton" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#onGoBackButtonClicked" text="Go Back" />
    </children>
 </AnchorPane>

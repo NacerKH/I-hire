@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1176.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StartPageController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="275.33335367838544" minHeight="10.0" prefHeight="268.6666666666667" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="124.29627312554254" minHeight="10.0" prefHeight="50.88888888888886" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="124.29627312554254" minHeight="2.222206963433166" prefHeight="52.33332655164929" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.29637993706598" minHeight="0.0" prefHeight="45.62964884440106" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.29637993706598" minHeight="10.0" prefHeight="43.88888888888886" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="192.44444444444446" minHeight="10.0" prefHeight="79.88888888888891" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="300.0" right="300.0" top="100.0" />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="submitOfferButton" alignment="CENTER" onAction="#onSubmitOfferButtonCliked" prefHeight="30.0" prefWidth="186.0" style="-fx-background-color: #21848B;" text="Submit For An Offer" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ImageView fitHeight="150.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../Assets/e-hire%20solution%20logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="LoginButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLoginButtonCliked" prefHeight="30.0" prefWidth="186.0" style="-fx-background-color: #21848B;" text="Login" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="startTestButton" alignment="CENTER" layoutX="205.0" layoutY="331.0" onAction="#onStartTestButton" prefHeight="30.0" prefWidth="186.0" style="-fx-background-color: #21848B;" text="Start Test" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button fx:id="showJobOffer" alignment="CENTER" layoutX="205.0" layoutY="355.0" mnemonicParsing="false" onAction="#onShowJobOffers" prefHeight="30.0" prefWidth="186.0" style="-fx-background-color: #21848B;" text="Show Job Offers" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.JobOffersUpdateController">
+   <children>
+      <Label layoutX="14.0" layoutY="18.0" prefHeight="28.0" prefWidth="123.0" text="Rechercher :">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField layoutX="131.0" layoutY="19.0" prefHeight="26.0" prefWidth="237.0" />
+      <TextField fx:id="txt_JobDescription" layoutX="14.0" layoutY="59.0" prefHeight="26.0" prefWidth="175.0" promptText="Job description" />
+      <TextField fx:id="txt_Averagesalary" layoutX="203.0" layoutY="59.0" prefHeight="26.0" prefWidth="175.0" promptText="Average salary" />
+      <TextField fx:id="txt_Totalplaces" layoutX="400.0" layoutY="58.0" prefHeight="26.0" prefWidth="175.0" promptText="Total places" />
+      <TextField fx:id="txt_status" layoutX="599.0" layoutY="59.0" prefHeight="26.0" prefWidth="175.0" promptText="Status" />
+      <DatePicker fx:id="val_CreDate" layoutX="11.0" layoutY="97.0" promptText="Created date" />
+      <DatePicker fx:id="val_UpDate" layoutX="11.0" layoutY="131.0" promptText="Updated date" />
+      <Label layoutX="400.0" layoutY="102.0" prefHeight="26.0" prefWidth="75.0" text="Category :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="Choice_Categories" layoutX="488.0" layoutY="102.0" onMouseClicked="#FillChoice_Categories" prefHeight="26.0" prefWidth="286.0" />
+      <JFXButton layoutX="383.0" layoutY="546.0" onMouseClicked="#Update_validate" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #2187ab;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="PENCIL_BOX" size="18" />
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="TableView" layoutX="7.0" layoutY="167.0" onMouseClicked="#Table_clikecked" prefHeight="360.0" prefWidth="871.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="col_JobD" prefWidth="124.80001831054688" text="JobDescription" />
+            <TableColumn fx:id="col_avgs" minWidth="5.600006103515625" prefWidth="118.39999389648438" text="AverageSalary" />
+            <TableColumn fx:id="col_totalp" minWidth="0.0" prefWidth="110.39996337890625" text="TotalPlaces" />
+            <TableColumn fx:id="col_Crd" prefWidth="118.4000244140625" text="CreatedDate" />
+            <TableColumn fx:id="col_upd" prefWidth="129.60003662109375" text="UpdatedDate" />
+            <TableColumn fx:id="col_Status" prefWidth="84.800048828125" text="Status" />
+            <TableColumn fx:id="col_categ" prefWidth="309.60003662109375" text="Category" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txt_idJoboffer" layoutX="381.0" layoutY="19.0" prefHeight="26.0" prefWidth="38.0" />
+   </children>
+</AnchorPane>

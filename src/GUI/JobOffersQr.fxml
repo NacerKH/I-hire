@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.JobOffersQrController">
+   <children>
+      <ImageView id="qrView" fx:id="qrView" fitHeight="143.0" fitWidth="157.0" layoutX="38.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="51.0" layoutY="564.0" prefHeight="18.0" prefWidth="130.0" text="Qr code" />
+      <TableView fx:id="TableView" layoutX="5.0" layoutY="24.0" onMouseClicked="#Table_clikecked" prefHeight="382.0" prefWidth="1000.0">
+         <columns>
+            <TableColumn fx:id="col_JobD" prefWidth="124.80001831054688" text="JobDescription" />
+            <TableColumn fx:id="col_avgs" minWidth="5.600006103515625" prefWidth="118.39999389648438" text="AverageSalary" />
+            <TableColumn fx:id="col_totalp" minWidth="0.0" prefWidth="110.39996337890625" text="TotalPlaces" />
+            <TableColumn fx:id="col_Crd" prefWidth="118.4000244140625" text="CreatedDate" />
+            <TableColumn fx:id="col_upd" prefWidth="129.60003662109375" text="UpdatedDate" />
+            <TableColumn fx:id="col_Status" prefWidth="84.800048828125" text="Status" />
+            <TableColumn fx:id="col_categ" prefWidth="309.60003662109375" text="Category" />
+         </columns>
+      </TableView>
+      <Button fx:id="generateQr" layoutX="210.0" layoutY="538.0" mnemonicParsing="false" onAction="#generateQr" text="Generate Qr" />
+   </children>
+</AnchorPane>

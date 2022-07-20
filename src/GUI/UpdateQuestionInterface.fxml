@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.2269385026737968" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UpdateQuestionInterfaceController">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="398.0" style="-fx-background-color: #21848B;" />
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="711.0">
+         <children>
+            <Pane prefHeight="63.0" prefWidth="20000.0" style="-fx-background-color: #21848B;" />
+            <Pane layoutX="5.0" layoutY="70.0" prefHeight="550.0" prefWidth="949.0">
+               <children>
+                  <Text fx:id="fxErrorChoixD" fill="#fd0c0c" layoutX="347.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
+                  <Text fx:id="fxErrorChoixC" fill="#fd0c0c" layoutX="347.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
+                  <Button fx:id="updateQuestion" layoutX="486.0" layoutY="457.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="45.0" prefWidth="336.0" style="-fx-background-color: #21848B;" text="Modifier les données" textFill="WHITE" />
+                  <SVGPath />
+                  <Text fx:id="fxTestTitle" fill="#262424" layoutX="32.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier question de Test : " textAlignment="CENTER" wrappingWidth="883.0000915527343">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Text>
+                  <CheckBox fx:id="fxrRepB" layoutX="127.0" layoutY="247.0" mnemonicParsing="false" text="Réponse est valide" textFill="#21848b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="fxrRepA" layoutX="127.0" layoutY="173.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="157.0" text="Réponse est valide" textFill="#21848b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea fx:id="fxChoixC" layoutX="339.0" layoutY="304.0" prefHeight="45.0" prefWidth="483.0" promptText="choix C" />
+                  <TextArea fx:id="fxChoixA" layoutX="339.0" layoutY="161.0" prefHeight="45.0" prefWidth="483.0" promptText="choix A" />
+                  <TextArea fx:id="fxDescription" layoutX="126.0" layoutY="86.0" prefHeight="45.0" prefWidth="505.0" promptText="Question" />
+                  <TextArea fx:id="fxChoixD" layoutX="339.0" layoutY="372.0" prefHeight="45.0" prefWidth="483.0" promptText="Choix D" />
+                  <TextArea fx:id="fxChoixB" layoutX="339.0" layoutY="235.0" prefHeight="45.0" prefWidth="483.0" promptText="Choix B" />
+                  <CheckBox fx:id="fxrRepD" layoutX="128.0" layoutY="384.0" mnemonicParsing="false" text="Réponse est valide" textFill="#21848b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="fxrRepC" layoutX="128.0" layoutY="318.0" mnemonicParsing="false" text="Réponse est valide" textFill="#21848b">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Text fx:id="fxErrorDescription" fill="#fd0c0c" layoutX="146.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="470.13668060302734" />
+                  <Text fx:id="fxErrorChoixA" fill="#fd0c0c" layoutX="346.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
+                  <Text fx:id="fxErrorChoixB" fill="#fd0c0c" layoutX="347.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="305.46996307373047" />
+                  <Button fx:id="cancel" layoutX="124.0" layoutY="456.0" mnemonicParsing="false" onAction="#cancel" prefHeight="45.0" prefWidth="344.0" style="-fx-background-color: #D1D3D4;" text="Annuler" textFill="WHITE" />
+                  <Text fill="#11b3bc" layoutX="149.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de création :" wrappingWidth="98.19467163085938" />
+                  <Text fill="#11b3bc" layoutX="564.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de dernière modification :" wrappingWidth="182.861328125" />
+                  <Text fx:id="fxCreatedDate" layoutX="256.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.49837239583326">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="fxUpdatedDate" layoutX="740.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="81.83174641927076">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="score" layoutX="638.0" layoutY="86.0" prefHeight="45.0" prefWidth="175.0" promptText="Score" />
+                  <Text fx:id="fxErrorScore" fill="#fd0c0c" layoutX="638.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.99999999999977" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

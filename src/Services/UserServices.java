@@ -92,6 +92,34 @@ public class UserServices
     }
     // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="GetByUserName">
+    public User GetByUserName(String userName)
+    {
+        try
+        {
+            String req = "SELECT * FROM User WHERE UserName = '" + userName + "';"; 
+            PreparedStatement ps = Connection.prepareStatement(req);
+            ResultSet result = ps.executeQuery(); 
+            while (result.next()) {
+                
+                try
+                {
+                    return InitUser(result); 
+                }
+                catch(Exception ex)
+                {
+                    System.err.println("[Exception] " + ex.getMessage());
+                }
+            }
+        }
+        catch (SQLException ex) {
+            System.err.println("[SQL Exception] " + ex.getMessage());
+        }
+        
+        return null; 
+    }
+    // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Post">
     public boolean Post(User model)
     {
